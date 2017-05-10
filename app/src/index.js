@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import SubPage from './routes/SubPage';
-import Header from './Header';
+import designLanguage from './routes/designLanguage';
+import navigation from './routes/navigation';
 import './css/index.css';
 import './css/grid.css';
 
@@ -15,7 +15,9 @@ ReactDOM.render(
   <Router>
     <div>
       <Route exact={true} path="/" component={App} />
-      <Route exact={true} path="/subpage" component={SubPage} />
+      <Route exact={true} path="/design-language" component={designLanguage} />
+      <Route exact={true} path="/navigation" component={navigation} />
+
     </div>
   </Router>,
   document.getElementById('root')

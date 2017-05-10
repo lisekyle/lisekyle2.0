@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import project1 from './images/project1.jpg';
 import project2 from './images/project2.jpg';
 import './css/App.css';
-import './css/fonts.css'
+import './css/fonts.css';
+import './css/test.scss';
 import Header from './Header';
 import Animation from './Animation';
 import SectionA from './SectionA';
@@ -23,15 +24,15 @@ class App extends Component {
           />
           <SectionA
           title={"case studies"}
-          link={(<Link to='/about'>Building a Design Language</Link>)}
+          link={(<Link to='/design-language'>Building a Design Language</Link>)}
           body={"This was a self-initiated project that began out of a need a senior developer and I recognized within the product team. We were given some time to take a step back and rethink our design process, style guide elements, and how we worked with the development team."}
-          link_2={(<Link to='/about'>Research and Listening to Your Users</Link>)}
+          link_2={(<Link to='/user-research'>User Research and Listening to Your Users</Link>)}
           body_2={"This project involved quite a bit user-feedback to be successful. The first design round didn't take our entire audience into consideration, and experienced quite a bit of backlash. The second iteration listened to what users wanted, and ended up decreasing our bounce rate by and increasing the time spent on the homepage."}
           />
           <SectionB
           title={"projects"}
           image={project1}
-          link={(<Link to='/about'>Building a Design Language</Link>)}
+          link={(<Link to='/navigation'>Global Navigation</Link>)}
           image_2={project2}
           link_2={(<Link to='/about'>Building a Design Language</Link>)}
           />
