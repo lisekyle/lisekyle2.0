@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class SubPageSection extends Component {
+export class Section extends Component {
     render() {
       return (
         <div className="section">
@@ -16,4 +16,4 @@ export class SubPageSection extends Component {
     }
 }
 
-export default SubPageSection;
+export default Section;

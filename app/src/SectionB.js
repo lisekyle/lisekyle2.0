@@ -5,7 +5,7 @@ export class SectionB extends Component {
       return (
         <div className="section">
           <div className="section__title--wrapper">
-            <h6 class="mono gray">{this.props.title}</h6>
+            <h6 className="mono gray">{this.props.title}</h6>
           </div>
           <div className="section--body">
             <img src={this.props.image}/>

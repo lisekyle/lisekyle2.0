@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import designLanguage from './routes/designLanguage';
 import navigation from './routes/navigation';
-import './css/index.css';
-import './css/grid.css';
 
 import {
   BrowserRouter as Router,
