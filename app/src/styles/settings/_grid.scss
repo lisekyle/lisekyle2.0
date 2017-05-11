@@ -1,0 +1,18 @@
+// Grid Settings
+
+$neat-grid: (
+  columns: 12,
+  gutter: em(20),
+);
+
+$tablet: (
+  columns: 12,
+  gutter: em(20),
+  media: "(max-width: 1020px)",
+);
+
+$mobile: (
+	columns: 4,
+	gutter: em(20),
+	media: "(min-width: 640px)",
+);

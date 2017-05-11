@@ -1,0 +1,45 @@
+h1, h2, h3, h4 {
+  font-family: $circular-bold;
+  color: $black;
+
+}
+
+h1 {
+  font-size: 3.998em;
+  line-height: 1.2;
+
+}
+
+h2 {
+  font-size: 2.827em;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.999em;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 1.414em;
+  line-height: 1.4;
+}
+
+small {
+  font-size: 0.707em;
+  line-height: 1.4;
+  color: $light-grey;
+}
+
+p {
+  margin-bottom: em(24);
+  line-height: 1.667;
+}
+
+.mono {
+  font-family: $apercu-mono;
+}
+
+.bold {
+  font-family: $apercu-bold;
+}
