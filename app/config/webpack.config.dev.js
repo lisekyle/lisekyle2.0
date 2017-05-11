@@ -9,8 +9,6 @@ var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeMod
 var getClientEnvironment = require('./env');
 var paths = require('./paths');
 
-
-
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 var publicPath = '/';
@@ -111,8 +109,9 @@ module.exports = {
           // Webpack 2 fixes this, but for now we include this hack.
           // https://github.com/facebookincubator/create-react-app/issues/1713
           /\.(js|jsx)(\?.*)?$/,
-          /\.s[ca]ss$/,
           /\.css$/,
+          /\.scss$/,
+          /\.sass$/,
           /\.json$/,
           /\.svg$/
         ],
@@ -121,6 +120,12 @@ module.exports = {
           limit: 10000,
           name: 'static/media/[name].[hash:8].[ext]'
         }
+      },
+      // Process SCSS with sass
+      {
+       test: /\.scss$/,
+       include: paths.appSrc,
+       loaders: ['style', 'css', 'sass']
       },
       // Process JS with Babel.
       {
@@ -136,7 +141,7 @@ module.exports = {
         }
       },
       {
-        test: /\.s[ca]ss$/,
+        test: /\.css$/,
         loader: 'style!css?importLoaders=1!postcss!sass'
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
       },
@@ -165,6 +170,13 @@ module.exports = {
       }
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "url" loader exclusion list.
+    ]
+  },
+  // Tell sass-loader where to find Bourbon and Neat
+  sassLoader: {
+    includePaths: [
+      paths.bourbon,
+      paths.bourbonNeat
     ]
   },
 

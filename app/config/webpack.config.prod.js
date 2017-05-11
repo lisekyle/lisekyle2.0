@@ -109,7 +109,6 @@ module.exports = {
         exclude: [
           /\.html$/,
           /\.(js|jsx)$/,
-          /\.s[ca]ss$/,
           /\.css$/,
           /\.json$/,
           /\.svg$/
@@ -128,11 +127,10 @@ module.exports = {
 
       },
       {
-        test: /\.s[ca]ss$/,
+        test: /\.css$/,
         loader: ExtractTextPlugin.extract(
           'style',
           'css?importLoaders=1!postcss',
-          'sass',
           extractTextPluginOptions
         )
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
@@ -174,6 +172,14 @@ module.exports = {
       }
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "url" loader exclusion list.
+    ]
+  },
+
+  // Tell sass-loader where to find Bourbon and Neat
+  sassLoader: {
+    includePaths: [
+      paths.bourbon,
+      paths.bourbonNeat
     ]
   },
 
