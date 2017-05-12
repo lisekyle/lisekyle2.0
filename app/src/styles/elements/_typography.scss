@@ -25,15 +25,20 @@ h4 {
   line-height: 1.4;
 }
 
+h5 {
+  font-size: 0.75em;
+  line-height: 1.4;
+}
+
 small {
-  font-size: 0.707em;
+  font-size: 0.65em;
   line-height: 1.4;
   color: $light-grey;
 }
 
 p {
   margin-bottom: em(24);
-  line-height: 1.667;
+  line-height: 1.8;
 }
 
 .mono {

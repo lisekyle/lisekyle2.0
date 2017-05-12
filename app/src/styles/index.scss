@@ -1,1 +1,142 @@
 // Index
+
+
+// Header
+.header {
+  @include grid-media($mobile) {
+    @include grid-column(4);
+  }
+  @include grid-media($default-grid) {
+    @include grid-column(12);
+  }
+  &__wrapper {
+    @include grid-column(8);
+    padding: 5vh 0;
+
+    h1 {
+      margin-bottom: 20px;
+    }
+    h4 {
+      color: $light-grey;
+    }
+  }
+}
+
+// Animation Box (for now, sighhhhhh)
+.animation {
+  @include grid-media($mobile) {
+    @include grid-column(4);
+  }
+  @include grid-media($default-grid) {
+    @include grid-column(12);
+  }
+  height: 30vh;
+  background-color: $cruise-teal;
+  // border: 20px solid $pastel-yellow;
+  margin-bottom: 10vh;
+
+}
+
+// Section
+.section {
+  @include grid-media($mobile) {
+    @include grid-column(4);
+  }
+  @include grid-media($default-grid) {
+    @include grid-column(12);
+  }
+
+  &__title {
+    @include grid-media($default-grid) {
+      @include grid-column(2);
+    }
+
+    h5 {
+      color: $light-grey;
+      text-transform: uppercase;
+      letter-spacing: 2.27px;
+
+      &:before {
+        content: url('images/line.svg');
+        vertical-align: super;
+        top: 1.5px;
+        position: relative;
+      }
+    }
+  }
+
+  &__body {
+    @include grid-media($default-grid) {
+      @include grid-column(10);
+    }
+
+    &--wrapper {
+      @include grid-media($default-grid) {
+        @include grid-column(10);
+      }
+    }
+  }
+
+  .line {
+    @include grid-column(12);
+    height: em(5);
+    background-color: $offwhite;
+    margin: 10vh 0;
+  }
+
+  .link {
+    margin-bottom: 1em;
+  }
+
+  .projects__grid {
+    @include grid-media($default-grid) {
+      @include grid-column(6);
+    }
+
+    h5 {
+      margin-top: 1.25em;
+      color: $light-grey;
+    }
+  }
+
+  .projects__image {
+    margin-bottom: .5em;
+  }
+
+  ul {
+    @include grid-media($default-grid) {
+      @include grid-column(12);
+    }
+
+    list-style: none;
+
+    li {
+      float: left;
+      display: block;
+    }
+  }
+
+  .footer--top {
+    margin-bottom: 3vh;
+    li {
+      margin-right: em(40);
+
+      a {
+        font-size: 14px;
+        padding-bottom: 2px;
+      }
+    }
+  }
+
+  .footer--bottom {
+    li {
+      margin-right: em(20);
+      font-size: 12px;
+
+      a {
+        color: $light-grey;
+      }
+
+    }
+  }
+}

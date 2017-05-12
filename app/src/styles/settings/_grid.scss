@@ -1,8 +1,9 @@
 // Grid Settings
 
-$neat-grid: (
+$default-grid: (
   columns: 12,
   gutter: em(20),
+  media: 1160px,
 );
 
 $tablet: (
