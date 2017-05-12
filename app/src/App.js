@@ -16,11 +16,15 @@ class App extends Component {
           <Header/>
           <Animation/>
           <Section title={"Hi, I'm Lise"}>
-            <p className="margin0btm">A product designer and former front-end developer that hails from the Midwest, which is why you'll probably think I say the word "bag" strangely. I've got 3+ years designing and coding with a broad range of teams: from small startups to large enterprises, helping them shape problems, think through solutions, and design beautiful user experiences.</p>
+            <div className="section__body--wrapper">
+              <p className="margin0btm">A product designer and former front-end developer that hails from the Midwest (which is why you'll probably think I say the word "bag" strangely). I have 3+ years designing and coding with a broad range of teams: from small startups to large enterprises, helping them shape problems, think through solutions, and design beautiful user experiences.</p>
+            </div>
           </Section>
           <Section title={"Case Studies"}>
-            <h4 className="link underline"><Link to="/design-language">Building a Design Language</Link></h4>
-            <p className="margin0btm">This was a self-initiated project that began out of a need a senior developer and I recognized within the product team. We were given some time to take a step back and rethink our design process, style guide elements, and how we worked with the development team.</p>
+            <div className="section__body--wrapper">
+              <h4 className="link underline"><Link to="/design-language">Building a Design Language</Link></h4>
+              <p className="margin0btm">This was a self-initiated project that began out of a need a senior developer and I recognized within the product team. We were given some time to take a step back and rethink our design process, style guide elements, and how we worked with the development team.</p>
+            </div>
           </Section>
           <Section title={"Projects"}>
             <div className="projects__grid">
