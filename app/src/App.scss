@@ -8,9 +8,17 @@
 @import "./styles/settings/grid";
 @import "./styles/settings/reset";
 
+// Base
+@import "./styles/base";
+@import "./styles/helpers";
+
 // Elements
 @import "./styles/elements/typography";
 
+// Patterns
+@import "./styles/patterns/section";
+@import "./styles/patterns/projectGrid";
+
 // Pages
-@import "./styles/base";
-@import "./styles/index"
+@import "./styles/pages/index";
+@import "./styles/pages/subpage";

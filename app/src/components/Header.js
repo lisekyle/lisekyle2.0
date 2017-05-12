@@ -8,7 +8,7 @@ export class Header extends Component {
             <h1>lise kyle chapman</h1>
             <h4 className="mono">product designer who codes based in san francisco. i like making things that help and inspire people.</h4>
           </div>
-      </div>
+        </div>
       )
     }
 }

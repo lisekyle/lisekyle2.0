@@ -1,0 +1,29 @@
+// Project grid
+
+.projects__grid {
+  @include grid-media($default-grid) {
+    @include grid-column(6);
+  }
+
+  h5 {
+    margin-top: 1.25em;
+    color: $light-grey;
+  }
+}
+
+.projects__image {
+  margin-bottom: .5em;
+}
+
+ul {
+  @include grid-media($default-grid) {
+    @include grid-column(12);
+  }
+
+  list-style: none;
+
+  li {
+    float: left;
+    display: block;
+  }
+}

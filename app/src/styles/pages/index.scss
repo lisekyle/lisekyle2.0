@@ -1,0 +1,63 @@
+// Index
+
+
+// Header
+.header {
+  @include grid-media($mobile) {
+    @include grid-column(4);
+  }
+  @include grid-media($default-grid) {
+    @include grid-column(12);
+  }
+  &__wrapper {
+    @include grid-column(8);
+    padding: 5vh 0;
+
+    h1 {
+      margin-bottom: 20px;
+    }
+    h4 {
+      color: $light-grey;
+    }
+  }
+}
+
+// Animation Box (for now, sighhhhhh)
+.animation {
+  @include grid-media($mobile) {
+    @include grid-column(4);
+  }
+  @include grid-media($default-grid) {
+    @include grid-column(12);
+  }
+  height: 30vh;
+  background-color: $cruise-teal;
+  // border: 20px solid $pastel-yellow;
+  margin-bottom: 10vh;
+
+}
+
+// Footer
+.footer--top {
+  margin-bottom: 3vh;
+  li {
+    margin-right: em(40);
+
+    a {
+      font-size: 14px;
+      padding-bottom: 2px;
+    }
+  }
+}
+
+.footer--bottom {
+  li {
+    margin-right: em(20);
+    font-size: 12px;
+
+    a {
+      color: $light-grey;
+    }
+
+  }
+}

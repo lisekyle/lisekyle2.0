@@ -1,0 +1,42 @@
+// Sub Page
+
+// Back Button
+.back-button {
+  @include grid-media($mobile) {
+    @include grid-column(4);
+  }
+  @include grid-media($default-grid) {
+    @include grid-column(12);
+  }
+  margin: 5vh 0;
+  &__wrapper {
+  }
+}
+
+// Header
+.subpage__header {
+  @include grid-media($mobile) {
+    @include grid-column(4);
+  }
+  @include grid-media($default-grid) {
+    @include grid-column(12);
+  }
+  &--wrapper {
+    margin: 5vh 0;
+    @include grid-media($mobile) {
+      @include grid-column(4);
+    }
+    @include grid-media($default-grid) {
+      @include grid-column(8);
+      @include grid-shift(2)
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    h4 {
+      color: $light-grey;
+    }
+  }
+}

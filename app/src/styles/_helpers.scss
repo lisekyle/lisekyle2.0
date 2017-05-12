@@ -1,0 +1,16 @@
+// Helpers
+
+.margin0btm {
+  margin-bottom: 0 !important;
+}
+
+// link underlines
+.underline {
+  a {
+    color: $black;
+    font-family: $circular-bold;
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 4px solid $cruise-teal;
+  }
+}
