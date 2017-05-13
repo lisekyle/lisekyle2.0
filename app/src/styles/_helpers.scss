@@ -4,6 +4,16 @@
   margin-bottom: 0 !important;
 }
 
+.middle {
+  // this is such a gross hack. please take out.
+  padding-right: 1.25em !important;
+}
+
+.center {
+  text-align: center;
+}
+
+
 // link underlines
 .underline {
   a {

@@ -38,26 +38,40 @@
 }
 
 // Footer
-.footer--top {
-  margin-bottom: 3vh;
-  li {
-    margin-right: em(40);
+.footer {
+  ul {
+    @include grid-media($default-grid) {
+      @include grid-column(12);
+    }
+    list-style: none;
 
-    a {
-      font-size: 14px;
-      padding-bottom: 2px;
+    li {
+      float: left;
+      display: block;
     }
   }
-}
 
-.footer--bottom {
-  li {
-    margin-right: em(20);
-    font-size: 12px;
+  &--top {
+    margin-bottom: 3vh;
+    li {
+      margin-right: em(40);
 
-    a {
-      color: $light-grey;
+      a {
+        font-size: 14px;
+        padding-bottom: 2px;
+      }
     }
-
   }
+
+  &--bottom {
+    li {
+      margin-right: em(20);
+      font-size: 12px;
+
+      a {
+        color: $light-grey;
+      }
+    }
+  }
+
 }

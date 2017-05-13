@@ -14,16 +14,3 @@
 .projects__image {
   margin-bottom: .5em;
 }
-
-ul {
-  @include grid-media($default-grid) {
-    @include grid-column(12);
-  }
-
-  list-style: none;
-
-  li {
-    float: left;
-    display: block;
-  }
-}

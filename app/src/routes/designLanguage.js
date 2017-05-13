@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import SubPageHeader from '../components/SubPageHeader';
 import Section from '../components/Section';
 import subpage from '../images/subpage.jpg';
-import elements from '../images/elements.jpg';
-import typography from '../images/typography.jpg';
+import fonts from '../images/fonts.jpg';
 import pattern from '../images/navigation_pattern.jpg';
 
 
@@ -35,34 +34,81 @@ export const designLanguage = () => {
           <div className="section__body--wrapper">
             <p>Our primary goal for the style guide was resiliency. Because our needs were always evolving, we strived for a modular approach: creating "living" components and patterns that could be modified individually.</p>
             <p className="margin0btm">We decided to follow a simplified version of <a href="http://atomicdesign.bradfrost.com/">Brad Frost's Atomic Design</a>. We broke up our style guide into three categories:</p>
-            <div classname="image--subpage">
-              <img src={elements}/>
-            </div>
+          </div>
+
+            <div className="categories-grid">
+              <div className="categories-grid__block">
+                <div className="categories-grid__block--wrapper">
+                  <h4>Elements</h4>
+                  <ul>
+                    <li>Colors</li>
+                    <li>Typefaces</li>
+                    <li>Tyopgraphic Scale</li>
+                    <li>Grid</li>
+                    <li>Spacing</li>
+                  </ul>
+                </div>
+                </div>
+                <div className="categories-grid__block middle">
+                  <div className="categories-grid__block--wrapper">
+                    <h4>Components</h4>
+                    <ul>
+                      <li>Buttons</li>
+                      <li>Lists</li>
+                      <li>Tables</li>
+                      <li>Forms</li>
+                      <li>Link Elements</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="categories-grid__block">
+                  <div className="categories-grid__block--wrapper">
+                    <h4>Patterns</h4>
+                    <ul>
+                      <li>Global Navigation</li>
+                      <li>Article Pages</li>
+                      <li>Blockquotes</li>
+                      <li>FAQs</li>
+                      <li>Author Bios</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+          <div className="section__body--wrapper">
             <p className="margin0btm">As the project began unfolding, I quickly realized how valuable it would be to do a design "audit" with the design team (another pillar of Atomic Design). We discovered quite a few holes in our visual language which lead to some productive brainstorming sessions that ended up improving the look and feel of EdSurge's brand.</p>
-            <div classname="image--subpage">
-              <img src={typography}/>
-              <small>Compiling our global typeface elements. We noticed that we needed a different typeface for article pages for optimal readability.</small>
+          </div>
+          <div className="image--subpage">
+            <img src={fonts}/>
+            <div className="image--subpage--description">
+              <small className="mono">Compiling our global typeface elements. We noticed that we needed a different typeface for article pages for optimal readability.</small>
             </div>
+        </div>
+          <div className="section__body--wrapper">
             <p className="margin0btm">There were no mobile patterns to speak of when the project started, and since 40% of EdSurge's user base is on a mobile device, I made the decision to design our components and patterns mobile first. I started with taking a looking at how we set up our grids and typography on mobile, and then moved onto bigger components such as buttons.</p>
-            <div classname="image--subpage">
-              <img src={typography}/>
-              <small>Compiling our global typeface elements. We noticed that we needed a different typeface for article pages for optimal readability.</small>
-            </div>
+          </div>
+          <div className="image--subpage margin0btm">
+            <img src={fonts}/>
+              <div className="image--subpage--description">
+                <small className="mono">Compiling our global typeface elements. We noticed that we needed a different typeface for article pages for optimal readability.</small>
+              </div>
           </div>
         </Section>
         <Section title={"Execution"}>
           <div className="section__body--wrapper">
             <p>Our MVP of the style guide included basic elements and some components to hit the ground running. With a solid foundation in place, the product team was able to prototype and experiment with ideas at a faster pace and a lower cost.</p>
             <p className="margin0btm">As for the design team, our feedback sessions went from nitpicking over padding and type choices to focusing on overall concepts and user experiences. The quality of our work has vastly improved, as well as our relationship with the engineering team. We no longer have to worry about how our designs are implemented because we have a shared visual language.</p>
-            <div classname="image--subpage">
-              <img src={pattern}/>
-              <small>Global navigation pattern built out with our style guide MVP</small>
+          </div>
+          <div className="image--subpage margin0btm">
+            <img src={pattern}/>
+            <div className="image--subpage--description">
+              <small className="mono">Global Navigation pattern built out with our style guide MVP. It was way easier to build out quick iterations once we had our building blocks in place.</small>
             </div>
           </div>
         </Section>
         <Section title={"Conclusion"}>
           <div className="section__body--wrapper">
-            <p>Building and maintaining a design language is an ongoing (and sometimes never-ending) process, but I am happy to have been a part of getting it off the ground. As the design lead, I learned how to prioritize decisions, and involve the right people at the right time. Working on an evolving project is a tricky thing to navigate: my biggest lesson was learning when and how to pick my battles, and keeping in mind that every decision wasn’t final; just necessary to keep momentum.</p>
+            <p>Building and maintaining a design language is an ongoing (and sometimes never-ending) process, but I am happy to have been a part of getting it off the ground. As the design lead, I learned how to prioritize decisions, and involve the right people at the right time. Working on an evolving project is a tricky thing to Navigate: <span class="bold">my biggest lessons was cultivating patience, and keeping in mind that every decision wasn’t final; just necessary to keep momentum.</span></p>
             <p className="margin0btm">With our style guide project, we introduced a new way of thinking to the product team. Historically, our product cycles bordered on waterfall; and many of our designers and developers had grown accustomed to little communication during the development process. To mitigate this, my fellow developer and I decided to lead by example: we shared our pairing sessions on Slack, posted examples of wireframes and user flows using our new style guide, and made plans to facilitate a product team offsite where we could talk about our new system, and strategize better ways to work together.</p>
           </div>
       </Section>

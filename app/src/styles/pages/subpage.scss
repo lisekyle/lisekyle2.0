@@ -40,3 +40,79 @@
     }
   }
 }
+
+// Images
+.image--subpage {
+  @include grid-media($mobile) {
+    @include grid-column(4);
+    @include grid-collapse();
+  }
+  @include grid-media($default-grid) {
+    @include grid-column(12);
+    @include grid-collapse();
+  }
+  margin: 7vh 0;
+
+  &--description {
+    @include grid-media($mobile) {
+      @include grid-column(4);
+    }
+    @include grid-media($default-grid) {
+      @include grid-column(10.5);
+      // @include grid-shift(1);
+    }
+    margin-top: 1em;
+    margin-left: 0 !important;
+  }
+
+}
+
+
+// Case Study Categories Grid
+.categories-grid {
+  margin: 7vh 0;
+  margin-left: 0 !important;
+  @include grid-media($mobile) {
+    @include grid-column(4);
+  }
+  @include grid-media($default-grid) {
+    @include grid-column(12);
+  }
+
+  &__block {
+    @include grid-media($mobile) {
+      @include grid-column(4);
+    }
+    @include grid-media($default-grid) {
+        @include grid-column(4);
+    }
+
+    border-right: 6px solid $cruise-teal;
+    padding: em(32) 0;
+    display: flex;
+
+    &:first-child {
+      margin-left: 0 !important;
+    }
+    &:last-child {
+      border-right: none;
+    }
+
+    &--wrapper {
+      margin: auto;
+      text-align: center;
+
+      h4 {
+        margin-bottom: em(10);
+      }
+      ul {
+        li {
+          list-style: none;
+          color: $light-grey;
+          font-size: 1em;
+          margin-bottom: .5em;
+        }
+      }
+    }
+  }
+}

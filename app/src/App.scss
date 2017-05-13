@@ -1,4 +1,5 @@
 // Vendor
+//TODO: replace bourbon / neat. neat grid 2.0 kinda sux
 @import '~bourbon/app/assets/stylesheets/bourbon';
 @import '~bourbon-neat/core/neat';
 
@@ -14,6 +15,7 @@
 
 // Elements
 @import "./styles/elements/typography";
+@import "./styles/elements/blockquote";
 
 // Patterns
 @import "./styles/patterns/section";

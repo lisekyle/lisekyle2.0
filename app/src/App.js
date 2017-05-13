@@ -43,18 +43,20 @@ class App extends Component {
             </div>
           </Section>
           <Section title={"Contact"}>
-            <ul className="footer--top">
-              <li className="underline"><a href="mailto:lisekyle@gmail.com">Email</a></li>
-              <li className="underline"><a href="resume.pdf">Resumé</a></li>
-              <li className="underline"><a href="portfolio.pdf">Full-Resolution Portfolio</a></li>
-            </ul>
-            <ul className="footer--bottom">
-              <li><a href="https://dribbble.com/lisekylechapman">dribbble</a></li>
-              <li><a href="https://www.linkedin.com/in/lisekylechapman">linkedin</a></li>
-              <li><a href="https://www.behance.net/lisekyle">behance</a></li>
-              <li><a href="http://codepen.io/kyletta/">codepen</a></li>
-              <li><a href="https://github.com/lisekyle">github</a></li>
-            </ul>
+            <div className="footer">
+              <ul className="footer--top">
+                <li className="underline"><a href="mailto:lisekyle@gmail.com">Email</a></li>
+                <li className="underline"><a href="resume.pdf">Resumé</a></li>
+                <li className="underline"><a href="portfolio.pdf">Full-Resolution Portfolio</a></li>
+              </ul>
+              <ul className="footer--bottom">
+                <li><a href="https://dribbble.com/lisekylechapman">dribbble</a></li>
+                <li><a href="https://www.linkedin.com/in/lisekylechapman">linkedin</a></li>
+                <li><a href="https://www.behance.net/lisekyle">behance</a></li>
+                <li><a href="http://codepen.io/kyletta/">codepen</a></li>
+                <li><a href="https://github.com/lisekyle">github</a></li>
+              </ul>
+            </div>
           </Section>
         </div>
       </div>
