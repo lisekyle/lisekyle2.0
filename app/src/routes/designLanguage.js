@@ -83,7 +83,7 @@ export const designLanguage = () => {
             <div className="image--subpage--description">
               <small className="mono">Compiling our global typeface elements. We noticed that we needed a different typeface for article pages for optimal readability.</small>
             </div>
-        </div>
+          </div>
           <div className="section__body--wrapper">
             <p className="margin0btm">There were no mobile patterns to speak of when the project started, and since 40% of EdSurge's user base is on a mobile device, I made the decision to design our components and patterns mobile first. I started with taking a looking at how we set up our grids and typography on mobile, and then moved onto bigger components such as buttons.</p>
           </div>
