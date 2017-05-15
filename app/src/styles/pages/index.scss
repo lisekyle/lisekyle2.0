@@ -79,6 +79,11 @@
 
       a {
         color: $light-grey;
+        opacity: 1;
+
+        &:hover {
+          opacity: .8;
+        }
       }
     }
   }

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import project1 from './images/nav_thumb.jpg';
-import nav_thumb from './images/nav_thumb2.jpg';
-import project2 from './images/project2.jpg';
+import nav_thumb from './images/nav_thumb.jpg';
 import './App.scss';
 import Header from './components/Header';
 import Animation from './components/Animation';
 import Section from './components/Section';
-import Footer from './components/Footer';
 import { Link } from 'react-router-dom'
 
 class App extends Component {
@@ -39,15 +36,18 @@ class App extends Component {
                 </div>
               </Link>
               </div>
-
-            <div className="projects__grid">
-              <div className="projects__image">
-                <img src={project1}/>
-              </div>
-              <h4 className="link underline margin0btm"><Link to="/navigation">Something Goes here</Link></h4>
-              <h5 className="mono">Research, UX, UI Design</h5>
-            </div>
-          </Section>
+              <div className="projects__grid">
+                <Link to="/navigation">
+                  <div className="projects__image">
+                    <img src={nav_thumb}/>
+                    <div className="projects__image--wrapper">
+                      <h4 className="margin0btm">Global Navigation</h4>
+                      <h5 className="mono">Research, UX, UI Design</h5>
+                    </div>
+                  </div>
+                </Link>
+                </div>
+              </Section>
           <Section title={"Contact"}>
             <div className="footer">
               <ul className="footer--top">
