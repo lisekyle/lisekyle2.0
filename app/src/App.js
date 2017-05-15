@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import project1 from './images/project1.jpg';
+import project1 from './images/nav_thumb.jpg';
+import nav_thumb from './images/nav_thumb2.jpg';
 import project2 from './images/project2.jpg';
 import './App.scss';
 import Header from './components/Header';
@@ -22,18 +23,23 @@ class App extends Component {
           </Section>
           <Section title={"Case Studies"}>
             <div className="section__body--wrapper">
-              <h4 className="link underline"><Link to="/design-language">Building a Design Language</Link></h4>
+              <h4 className="link underline--big"><Link to="/design-language">Building a Design Language</Link></h4>
               <p className="margin0btm">This was a self-initiated project that began out of a need a senior developer and I recognized within the product team. We were given some time to take a step back and rethink our design process, style guide elements, and how we worked with the development team.</p>
             </div>
           </Section>
           <Section title={"Projects"}>
             <div className="projects__grid">
-              <div className="projects__image">
-                <img src={project1}/>
+              <Link to="/navigation">
+                <div className="projects__image">
+                  <img src={nav_thumb}/>
+                  <div className="projects__image--wrapper">
+                    <h4 className="margin0btm">Global Navigation</h4>
+                    <h5 className="mono">Research, UX, UI Design</h5>
+                  </div>
+                </div>
+              </Link>
               </div>
-              <h4 className="link underline margin0btm"><Link to="/navigation">Global Navigation</Link></h4>
-              <h5 className="mono">Research, UX, UI Design</h5>
-            </div>
+
             <div className="projects__grid">
               <div className="projects__image">
                 <img src={project1}/>
@@ -45,9 +51,9 @@ class App extends Component {
           <Section title={"Contact"}>
             <div className="footer">
               <ul className="footer--top">
-                <li className="underline"><a href="mailto:lisekyle@gmail.com">Email</a></li>
-                <li className="underline"><a href="resume.pdf">Resumé</a></li>
-                <li className="underline"><a href="portfolio.pdf">Full-Resolution Portfolio</a></li>
+                <li className="underline--small"><a href="mailto:lisekyle@gmail.com">Email</a></li>
+                <li className="underline--small"><a href="resume.pdf">Resumé</a></li>
+                <li className="underline--small"><a href="portfolio.pdf">Full-Resolution Portfolio</a></li>
               </ul>
               <ul className="footer--bottom">
                 <li><a href="https://dribbble.com/lisekylechapman">dribbble</a></li>
