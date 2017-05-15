@@ -21,6 +21,10 @@ class App extends Component {
           <Section title={"Case Studies"}>
             <div className="section__body--wrapper">
               <h4 className="link underline--big"><Link to="/design-language">Building a Design Language</Link></h4>
+              <p>This was a self-initiated project that began out of a need a senior developer and I recognized within the product team. We were given some time to take a step back and rethink our design process, style guide elements, and how we worked with the development team.</p>
+            </div>
+            <div className="section__body--wrapper">
+              <h4 className="link underline--big"><Link to="/design-language">Research & Listening to Users</Link></h4>
               <p className="margin0btm">This was a self-initiated project that began out of a need a senior developer and I recognized within the product team. We were given some time to take a step back and rethink our design process, style guide elements, and how we worked with the development team.</p>
             </div>
           </Section>
@@ -41,12 +45,45 @@ class App extends Component {
                   <div className="projects__image">
                     <img src={nav_thumb}/>
                     <div className="projects__image--wrapper">
-                      <h4 className="margin0btm">Global Navigation</h4>
-                      <h5 className="mono">Research, UX, UI Design</h5>
+                      <h4 className="margin0btm">Glitch Selfie Cube</h4>
+                      <h5 className="mono">Web Development, Weirdness</h5>
                     </div>
                   </div>
                 </Link>
                 </div>
+                <div className="projects__grid">
+                  <Link to="/navigation">
+                    <div className="projects__image">
+                      <img src={nav_thumb}/>
+                      <div className="projects__image--wrapper">
+                        <h4 className="margin0btm">Article Page Iterations</h4>
+                        <h5 className="mono">Research, UX, UI Design</h5>
+                      </div>
+                    </div>
+                  </Link>
+                  </div>
+                  <div className="projects__grid">
+                    <Link to="/navigation">
+                      <div className="projects__image">
+                        <img src={nav_thumb}/>
+                        <div className="projects__image--wrapper">
+                          <h4 className="margin0btm">Mood App Feature</h4>
+                          <h5 className="mono">Research, UX, UI Design</h5>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                  <div className="projects__grid">
+                    <Link to="/navigation">
+                      <div className="projects__image">
+                        <img src={nav_thumb}/>
+                        <div className="projects__image--wrapper">
+                          <h4 className="margin0btm">Misc. Projects</h4>
+                          <h5 className="mono">Branding, Illustration</h5>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
               </Section>
           <Section title={"Contact"}>
             <div className="footer">
