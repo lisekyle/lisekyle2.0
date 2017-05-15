@@ -30,10 +30,19 @@
   @include grid-media($default-grid) {
     @include grid-column(12);
   }
-  height: 30vh;
-  background-color: $cruise-teal;
-  // border: 20px solid $pastel-yellow;
+  height: 40vh;
+  background-color: #fff;
   margin-bottom: 10vh;
+  position: relative;
+
+  canvas {
+    transition: transform 1.25s;
+
+    &:hover {
+      transform: skewX(-10deg);
+      transform: skewY(10deg);
+    }
+  }
 
 }
 
