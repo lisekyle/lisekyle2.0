@@ -6,8 +6,8 @@ import header from '../images/styleguide/header.jpg';
 import colors from '../images/styleguide/colors.jpg';
 import fonts from '../images/styleguide/fonts.jpg';
 import mobilefonts from '../images/styleguide/mobile_fonts2.jpg';
-import pattern from '../images/navigation_pattern.jpg';
 import cards from '../images/styleguide/cards.jpg';
+import pattern from '../images/styleguide/navigation_pattern.jpg';
 import trello from '../images/styleguide/trello.jpg';
 
 
@@ -123,7 +123,7 @@ export const designLanguage = () => {
             </div>
           </div>
         </Section>
-        <Section title={"Conclusion"}>
+        <Section title={"Conclusion"} noLine>
           <div className="section__body--wrapper">
             <p className="margin0btm">Building and maintaining a design language is an ongoing (and sometimes never-ending) process, but I am happy to have been a part of getting it off the ground. As the design lead, I learned how to prioritize decisions, and involve the right people at the right time. Working on an evolving project is a tricky thing to Navigate: <span class="bold">my biggest lessons was cultivating patience, and keeping in mind that every decision wasn’t final; just necessary to keep momentum.</span></p>
           </div>
