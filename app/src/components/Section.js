@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 export class Section extends Component {
+    componentDidMount() {
+      window.scrollTo(0, 0);
+    }
+
     render() {
       return (
         <div className="section">
@@ -10,7 +14,7 @@ export class Section extends Component {
           <div className="section__body">
               {this.props.children}
           </div>
-          <div className="line"></div>
+          <div className={`line ${this.props.noLine ? 'line--no-line' : ''}`}></div>
         </div>
       )
     }

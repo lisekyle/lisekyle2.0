@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import nav_thumb from './images/nav_thumb.jpg';
+import case_thumb from './images/casestudies_thumb.jpg';
 import './App.scss';
 import Header from './components/Header';
 import Animation from './components/Animation';
@@ -7,6 +8,10 @@ import Section from './components/Section';
 import { Link } from 'react-router-dom'
 
 class App extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <div className="app">
@@ -23,10 +28,6 @@ class App extends Component {
               <h4 className="link underline--big"><Link to="/design-language">Building a Design Language</Link></h4>
               <p>This was a self-initiated project that began out of a need a senior developer and I recognized within the product team. We were given some time to take a step back and rethink our design process, style guide elements, and how we worked with the development team.</p>
             </div>
-            <div className="section__body--wrapper">
-              <h4 className="link underline--big"><Link to="/design-language">Research & Listening to Users</Link></h4>
-              <p className="margin0btm">This was a self-initiated project that began out of a need a senior developer and I recognized within the product team. We were given some time to take a step back and rethink our design process, style guide elements, and how we worked with the development team.</p>
-            </div>
           </Section>
           <Section title={"Projects"}>
             <div className="projects__grid">
@@ -41,51 +42,18 @@ class App extends Component {
               </Link>
               </div>
               <div className="projects__grid">
-                <Link to="/navigation">
+                <Link to="/casestudies">
                   <div className="projects__image">
-                    <img src={nav_thumb}/>
+                    <img src={case_thumb}/>
                     <div className="projects__image--wrapper">
-                      <h4 className="margin0btm">Glitch Selfie Cube</h4>
-                      <h5 className="mono">Web Development, Weirdness</h5>
+                      <h4 className="margin0btm">Interactive Case Studies</h4>
+                      <h5 className="mono">UX, UI Design, Web Development</h5>
                     </div>
                   </div>
                 </Link>
                 </div>
-                <div className="projects__grid">
-                  <Link to="/navigation">
-                    <div className="projects__image">
-                      <img src={nav_thumb}/>
-                      <div className="projects__image--wrapper">
-                        <h4 className="margin0btm">Article Page Iterations</h4>
-                        <h5 className="mono">Research, UX, UI Design</h5>
-                      </div>
-                    </div>
-                  </Link>
-                  </div>
-                  <div className="projects__grid">
-                    <Link to="/navigation">
-                      <div className="projects__image">
-                        <img src={nav_thumb}/>
-                        <div className="projects__image--wrapper">
-                          <h4 className="margin0btm">Mood App Feature</h4>
-                          <h5 className="mono">Research, UX, UI Design</h5>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="projects__grid">
-                    <Link to="/navigation">
-                      <div className="projects__image">
-                        <img src={nav_thumb}/>
-                        <div className="projects__image--wrapper">
-                          <h4 className="margin0btm">Misc. Projects</h4>
-                          <h5 className="mono">Branding, Illustration</h5>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
               </Section>
-          <Section title={"Contact"}>
+          <Section title={"Contact"} noLine>
             <div className="footer">
               <ul className="footer--top">
                 <li className="underline--small"><a href="mailto:lisekyle@gmail.com">Email</a></li>
