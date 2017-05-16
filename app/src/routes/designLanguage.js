@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import SubPageHeader from '../components/SubPageHeader';
 import Section from '../components/Section';
-import subpage from '../images/subpage.jpg';
-import fonts from '../images/fonts.jpg';
+import header from '../images/styleguide/header.jpg';
+import colors from '../images/styleguide/colors.jpg';
+import fonts from '../images/styleguide/fonts.jpg';
+import mobilefonts from '../images/styleguide/mobile_fonts2.jpg';
 import pattern from '../images/navigation_pattern.jpg';
+import cards from '../images/styleguide/cards.jpg';
+import trello from '../images/styleguide/trello.jpg';
 
 
 export const designLanguage = () => {
@@ -12,7 +16,7 @@ export const designLanguage = () => {
     <div className="app">
       <div className="container">
         <SubPageHeader
-          image={subpage}
+          image={header}
           title={"Building a Design Language"}
           subtitle={"Correcting the reactive product cycle by adopting a unified design system"}
           />
@@ -78,19 +82,26 @@ export const designLanguage = () => {
           <div className="section__body--wrapper">
             <p className="margin0btm">As the project began unfolding, I quickly realized how valuable it would be to do a design "audit" with the design team (another pillar of Atomic Design). We discovered quite a few holes in our visual language which lead to some productive brainstorming sessions that ended up improving the look and feel of EdSurge's brand.</p>
           </div>
+          <div className="image--subpage margin0btm">
+            <img src={colors}/>
+            <div className="image--subpage--description">
+                <small className="mono">We started off with over 20 shades of gray in our codebase! Our first priority was narrowing down a solid color palette</small>
+            </div>
+          </div>
+
           <div className="image--subpage">
             <img src={fonts}/>
             <div className="image--subpage--description">
-              <small className="mono">Compiling our global typeface elements. We noticed that we needed a different typeface for article pages for optimal readability.</small>
+              <small className="mono">Compiling our global typeface elements. We decided on a seperate, more readable serif for articles.</small>
             </div>
           </div>
           <div className="section__body--wrapper">
             <p className="margin0btm">There were no mobile patterns to speak of when the project started, and since 40% of EdSurge's user base is on a mobile device, I made the decision to design our components and patterns mobile first. I started with taking a looking at how we set up our grids and typography on mobile, and then moved onto bigger components such as buttons.</p>
           </div>
           <div className="image--subpage margin0btm">
-            <img src={fonts}/>
+            <img src={mobilefonts}/>
               <div className="image--subpage--description">
-                <small className="mono">Compiling our global typeface elements. We noticed that we needed a different typeface for article pages for optimal readability.</small>
+                <small className="mono">Setting up font sizes for desktop and mobile.</small>
               </div>
           </div>
         </Section>
@@ -100,15 +111,29 @@ export const designLanguage = () => {
             <p className="margin0btm">As for the design team, our feedback sessions went from nitpicking over padding and type choices to focusing on overall concepts and user experiences. The quality of our work has vastly improved, as well as our relationship with the engineering team. We no longer have to worry about how our designs are implemented because we have a shared visual language.</p>
           </div>
           <div className="image--subpage margin0btm">
+            <img src={cards}/>
+            <div className="image--subpage--description">
+              <small className="mono">Homepage cards pattern built out with the first iteration of the style guide.</small>
+            </div>
+          </div>
+          <div className="image--subpage margin0btm">
             <img src={pattern}/>
             <div className="image--subpage--description">
-              <small className="mono">Global Navigation pattern built out with our style guide MVP. It was way easier to build out quick iterations once we had our building blocks in place.</small>
+              <small className="mono">Global navigation pattern built out with our style guide.</small>
             </div>
           </div>
         </Section>
         <Section title={"Conclusion"}>
           <div className="section__body--wrapper">
-            <p>Building and maintaining a design language is an ongoing (and sometimes never-ending) process, but I am happy to have been a part of getting it off the ground. As the design lead, I learned how to prioritize decisions, and involve the right people at the right time. Working on an evolving project is a tricky thing to Navigate: <span class="bold">my biggest lessons was cultivating patience, and keeping in mind that every decision wasn’t final; just necessary to keep momentum.</span></p>
+            <p className="margin0btm">Building and maintaining a design language is an ongoing (and sometimes never-ending) process, but I am happy to have been a part of getting it off the ground. As the design lead, I learned how to prioritize decisions, and involve the right people at the right time. Working on an evolving project is a tricky thing to Navigate: <span class="bold">my biggest lessons was cultivating patience, and keeping in mind that every decision wasn’t final; just necessary to keep momentum.</span></p>
+          </div>
+          <div className="image--subpage">
+            <img src={trello}/>
+            <div className="image--subpage--description">
+              <small className="mono">Future plans for iteration, so the styleguide doesn't turn into a <a href="https://twitter.com/jina/status/638850299172667392">"zombie styleguide"</a></small>
+            </div>
+          </div>
+          <div className="section__body--wrapper">
             <p className="margin0btm">With our style guide project, we introduced a new way of thinking to the product team. Historically, our product cycles bordered on waterfall; and many of our designers and developers had grown accustomed to little communication during the development process. To mitigate this, my fellow developer and I decided to lead by example: we shared our pairing sessions on Slack, posted examples of wireframes and user flows using our new style guide, and made plans to facilitate a product team offsite where we could talk about our new system, and strategize better ways to work together.</p>
           </div>
       </Section>
