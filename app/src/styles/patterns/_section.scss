@@ -34,7 +34,7 @@
 
     &--wrapper {
       @include grid-media($default-grid) {
-        @include grid-column(10);
+        @include grid-column(11);
       }
     }
   }

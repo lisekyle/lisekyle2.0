@@ -45,30 +45,23 @@
 .image--subpage {
   @include grid-media($mobile) {
     @include grid-column(4);
-    @include grid-collapse();
   }
   @include grid-media($default-grid) {
-    @include grid-column(12);
-    @include grid-collapse();
+    @include grid-column(11);
   }
   margin: 7vh 0;
 
-  &--description {
-    @include grid-media($mobile) {
-      @include grid-column(4);
-    }
-    @include grid-media($default-grid) {
-      @include grid-column(10.5);
-      // @include grid-shift(1);
-    }
-    margin-top: 1em;
-    margin-left: 0 !important;
-  }
+}
+
+.image--subpage--description {
+  margin-top: 1em;
+  text-align: center;
+  margin-left: 0 !important;
 
 }
 
 .--multiple {
-  margin: 5vh 0;
+  margin: 7vh 0;
 }
 
 // Case Study Categories Grid
