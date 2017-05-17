@@ -57,15 +57,15 @@ class App extends Component {
             <div className="footer">
               <ul className="footer--top">
                 <li className="underline--small"><a href="mailto:lisekyle@gmail.com">Email</a></li>
-                <li className="underline--small"><a href="resume.pdf">Resumé</a></li>
-                <li className="underline--small"><a href="portfolio.pdf">Full-Resolution Portfolio</a></li>
+                <li className="underline--small"><a href="https://www.dropbox.com/s/uo7it8qmdj5s7g3/lisekylechapman_resume2017_2.pdf?dl=0" target="_blank">Resumé</a></li>
+                <li className="underline--small"><a href="https://www.dropbox.com/sh/mtlaw0ic7she340/AACQwjoMU8qVw5sZBL_EmzCfa?dl=0" target="_blank">Full-Resolution Portfolio</a></li>
               </ul>
               <ul className="footer--bottom">
-                <li><a href="https://dribbble.com/lisekylechapman">dribbble</a></li>
-                <li><a href="https://www.linkedin.com/in/lisekylechapman">linkedin</a></li>
-                <li><a href="https://www.behance.net/lisekyle">behance</a></li>
-                <li><a href="http://codepen.io/kyletta/">codepen</a></li>
-                <li><a href="https://github.com/lisekyle">github</a></li>
+                <li><a href="https://dribbble.com/lisekylechapman" target="_blank">dribbble</a></li>
+                <li><a href="https://www.linkedin.com/in/lisekylechapman" target="_blank">linkedin</a></li>
+                <li><a href="https://www.behance.net/lisekyle" target="_blank">behance</a></li>
+                <li><a href="http://codepen.io/kyletta/" target="_blank">codepen</a></li>
+                <li><a href="https://github.com/lisekyle" target="_blank">github</a></li>
               </ul>
             </div>
           </Section>

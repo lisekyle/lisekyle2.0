@@ -8,10 +8,10 @@ export class Animation extends Component {
     this.ch = null;
     this.spacing = null;
     this.lineCount = 35;
-    this.lineWidth = 1;
+    this.lineWidth = 1.5;
     this.lines = [];
     this.fillStyle = 'transparent';
-    this.strokeStyle = '#B5E9DF';
+    this.strokeStyle = '#ffdde1';
     this.tick = 15;
     this.loop = this.loop.bind(this);
     this.initCanvas = this.initCanvas.bind(this);

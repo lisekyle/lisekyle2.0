@@ -31,7 +31,7 @@
       display: inline-block;
       height: 1em;
       width: 100%;
-      border-bottom: 4px solid $cruise-teal;
+      border-bottom: 4px solid $mauve;
       transition: all .2s ease-out;
       margin-top: 10px;
 
@@ -63,7 +63,7 @@
       display: inline-block;
       height: 1em;
       width: 100%;
-      border-bottom: 3px solid $cruise-teal;
+      border-bottom: 3px solid $mauve;
       transition: border-bottom 1s ease;
       margin-top: 6px;
       transition: all .2s ease-out;
@@ -76,4 +76,14 @@
     }
   }
 
+}
+
+video {
+  @include grid-media($mobile) {
+    @include grid-column(4);
+  }
+  @include grid-media($default-grid) {
+    @include grid-column(12);
+  }
+    margin-bottom: 1em;
 }
