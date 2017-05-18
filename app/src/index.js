@@ -4,6 +4,7 @@ import App from './App';
 import designLanguage from './routes/designLanguage';
 import navigation from './routes/navigation';
 import casestudies from './routes/casestudies';
+import homepage from './routes/homepage';
 
 
 import {
@@ -16,6 +17,7 @@ ReactDOM.render(
     <div>
       <Route exact={true} path="/" component={App} />
       <Route exact={true} path="/design-language" component={designLanguage} />
+            <Route exact={true} path="/homepage" component={homepage} />
       <Route exact={true} path="/navigation" component={navigation} />
       <Route exact={true} path="/casestudies" component={casestudies} />
 

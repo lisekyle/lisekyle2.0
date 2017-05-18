@@ -28,6 +28,10 @@ class App extends Component {
               <h4 className="link underline--big"><Link to="/design-language">Building a Design Language</Link></h4>
               <p>This was a self-initiated project that began out of a need a senior developer and I recognized within the product team. We were given some time to take a step back and rethink our design process, style guide elements, and how we worked with the development team.</p>
             </div>
+            <div className="section__body--wrapper">
+              <h4 className="link underline--big"><Link to="/homepage">Research and Listening to Users</Link></h4>
+              <p className="margin0btm">I led an effort to re-evaluate our homepage and improve the design after an unsatisfactory launch. By using different user research techniques, I aimed to restore brand impression and trust amongst our audience.</p>
+            </div>
           </Section>
           <Section title={"Projects"}>
             <div className="projects__grid">

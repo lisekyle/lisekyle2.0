@@ -68,6 +68,19 @@
   margin: 4vh 0;
 }
 
+.--small {
+  margin: 2vh 0;
+}
+
+.--grid {
+  @include grid-media($mobile) {
+    @include grid-column(4);
+  }
+  @include grid-media($default-grid) {
+    @include grid-column(6);
+  }
+}
+
 // Case Study Categories Grid
 .categories-grid {
   margin: 7vh 0;
@@ -115,4 +128,8 @@
       }
     }
   }
+}
+
+.--margin-middle {
+  margin-bottom: em(50);
 }
