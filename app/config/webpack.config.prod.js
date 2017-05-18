@@ -127,10 +127,10 @@ module.exports = {
 
       },
       {
-        test: /\.css$/,
+        test: /\.s[a|c]ss$/,
         loader: ExtractTextPlugin.extract(
           'style',
-          'css?importLoaders=1!postcss',
+          'css?importLoaders=1!postcss!sass',
           extractTextPluginOptions
         )
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.

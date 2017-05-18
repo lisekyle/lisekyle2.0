@@ -136,7 +136,7 @@ export const homepage = () => {
                 <li>Users were happy that the “Get Started” button was no longer present. An overwhelming amount of people felt expressed that the previous call-to-action made them question our quality of news.</li>
               </ul>
             </p>
-            <p className="sad-face --margin-middle"><span className="bold">What didn't worked:</span>
+            <p className="sad-face --margin-middle"><span className="bold">What didn't work:</span>
               <ul>
                 <li>Users still many questions about our header image and what our value proposition meant.</li>
                 <li>Users were still unsure about the difference between our news stories and products we offered.</li>
@@ -158,7 +158,7 @@ export const homepage = () => {
                 <li>Users responded well to the subscribe call-out being further down the page.</li>
               </ul>
             </p>
-            <p className="sad-face --margin-middle"><span className="bold">What didn't worked:</span>
+            <p className="sad-face --margin-middle"><span className="bold">What didn't work:</span>
               <ul>
                 <li>A bit too much callout for sponsored articles. Users were actively saying: "Oh, I’d avoid that."</li>
                 <li>Users bothered by the illustration style of our icons, and sometimes the use of icons in general. Users commented on the "edtech company" nature of them.</li>
@@ -178,7 +178,7 @@ export const homepage = () => {
                 <li>Users liked the number of news cards in the second section. Some comments were: "I will come to the homepage way more now!" and "The homepage doesn’t feel like a dead end anymore."</li>
               </ul>
             </p>
-            <p className="sad-face margin0btm"><span className="bold">What didn't worked:</span>
+            <p className="sad-face margin0btm"><span className="bold">What didn't work:</span>
               <ul>
                 <li>The copy for the "Who We Help" needs to include more of our audience, specifically those who work in higher education.</li>
               </ul>
