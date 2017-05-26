@@ -3,21 +3,39 @@
 
 // Header
 .header {
+  padding: 5vh 0;
   @include grid-media($mobile) {
     @include grid-column(4);
   }
   @include grid-media($default-grid) {
     @include grid-column(12);
   }
-  &__wrapper {
+
+  .header__wrapper {
     @include grid-column(8);
-    padding: 5vh 0;
+
 
     h1 {
       margin-bottom: 20px;
     }
     h4 {
       color: $light-grey;
+    }
+
+  }
+  .nav--right {
+    float: right;
+    margin-top: 24px;
+
+    li {
+      display: inline-block;
+      list-style: none;
+      margin-right: 32px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
     }
   }
 }
