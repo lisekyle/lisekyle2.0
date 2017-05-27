@@ -3,6 +3,8 @@ import styleguide_thumb from './images/styleguide_thumb.jpg';
 import homepage_thumb from './images/homepage_thumb.jpg';
 import nav_thumb from './images/nav_thumb.jpg';
 import case_thumb from './images/casestudies_thumb.jpg';
+import okovi_thumb from './images/okovi2_thumb.jpg';
+import hex_thumb from './images/hex2_thumb.jpg';
 import './App.scss';
 import Header from './components/Header';
 import Animation from './components/Animation';
@@ -29,7 +31,13 @@ class App extends Component {
 
           <Section title={"Work"}>
             <div id="work">
-              <div className="projects__grid">
+              <div className="controls">
+                <button class="filter" data-filter="all">All</button>
+                <button class="filter" data-filter=".product-ux">Product + UX</button>
+                <button class="filter" data-filter=".visual-branding">Visual + Branding</button>
+                <button class="web" data-filter=".web">Web Development</button>
+              </div>
+              <div className="projects__grid mix product-ux">
                 <Link to="/design-language">
                   <div className="projects__image">
                     <img src={styleguide_thumb}/>
@@ -42,6 +50,18 @@ class App extends Component {
                 </Link>
                 </div>
                 <div className="projects__grid">
+                  <Link to="/video-teaser">
+                    <div className="projects__image mix visual-branding web">
+                      <img src={okovi_thumb}/>
+                      <div className="projects__image--wrapper">
+                        <h4 className="margin0btm">Music Video Teaser</h4>
+                          <h5 className="mono">Visual Design, UX, Web Development</h5>
+                          <small className="mono small--sub">Sacred Bones Records, 2017</small>
+                      </div>
+                    </div>
+                  </Link>
+                  </div>
+                <div className="projects__grid mix product-ux">
                   <Link to="/homepage">
                     <div className="projects__image">
                       <img src={homepage_thumb}/>
@@ -53,7 +73,7 @@ class App extends Component {
                     </div>
                   </Link>
                   </div>
-                <div className="projects__grid">
+                <div className="projects__grid mix product-ux">
                   <Link to="/navigation">
                     <div className="projects__image">
                       <img src={nav_thumb}/>
@@ -65,20 +85,21 @@ class App extends Component {
                     </div>
                   </Link>
                   </div>
-                  <div className="projects__grid">
-                    <Link to="/casestudies">
+                  <div className="projects__grid mix visual-branding">
+                    <Link to="/hex-shadows">
                       <div className="projects__image">
-                        <img src={case_thumb}/>
+                        <img src={hex_thumb}/>
                         <div className="projects__image--wrapper">
-                          <h4 className="margin0btm">Interactive Case Studies</h4>
-                            <h5 className="mono">UX, UI Design</h5>
-                            <small className="mono small--sub">EdSurge, 2016</small>
+                          <h4 className="margin0btm">Hex Shadows</h4>
+                            <h5 className="mono">Package Design, Art Direction</h5>
+                            <small className="mono small--sub">2015</small>
                         </div>
                       </div>
                     </Link>
                     </div>
-                  </div>
-                </Section>
+
+            </div>
+          </Section>
 
           <Section title={"Contact"} noLine>
             <div id="contact" className="footer">
