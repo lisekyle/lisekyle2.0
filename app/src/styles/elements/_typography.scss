@@ -30,10 +30,17 @@ h5 {
   line-height: 1.4;
 }
 
+
 small {
   font-size: 0.65em;
   line-height: 1.4;
   color: $light-grey;
+}
+
+.small--sub {
+  text-transform: uppercase;
+  color: #C8C8C8;
+  letter-spacing: 1.5px;
 }
 
 p {

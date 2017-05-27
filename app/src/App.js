@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Animation from './components/Animation';
 import Section from './components/Section';
 import { Link } from 'react-router-dom'
+import mixitup from 'mixitup';
 
 class App extends Component {
   componentDidMount() {
@@ -22,11 +23,11 @@ class App extends Component {
           <Animation/>
           <Section title={"Hi, I'm Lise"}>
             <div className="section__body--wrapper">
-              <p className="margin0btm">I'm a designer with a background in frontend development and art. I hail from the great Midwest (which is probably why you'll think I say "bagel" strangely), where I went to school for design. I've got 3+ years designing and coding with a broad range of teams: from small startups to large enterprises, helping them shape problems, think through solutions, and design beautiful user experiences.</p>
+              <p className="margin0btm">I'm a designer with a background in frontend development and art. I hail from the great Midwest (which is probably why you'll think I say "bagel" strangely), where I went to school for design. I have 3+ years designing and coding with a broad range of teams: from small startups to large enterprises, helping them shape problems, think through solutions, and design beautiful user experiences.</p>
             </div>
           </Section>
 
-          <Section title={"EdSurge"}>
+          <Section title={"Work"}>
             <div id="work">
               <div className="projects__grid">
                 <Link to="/design-language">
@@ -35,6 +36,7 @@ class App extends Component {
                     <div className="projects__image--wrapper">
                       <h4 className="margin0btm">Building a Design Language</h4>
                       <h5 className="mono">Project Lead, Research, UX, UI Design</h5>
+                      <small className="mono small--sub">EdSurge, 2016</small>
                     </div>
                   </div>
                 </Link>
@@ -45,7 +47,8 @@ class App extends Component {
                       <img src={homepage_thumb}/>
                       <div className="projects__image--wrapper">
                         <h4 className="margin0btm">Homepage Redesign</h4>
-                        <h5 className="mono">Research, UX, UI Design</h5>
+                          <h5 className="mono">Research, UX, UI Design</h5>
+                          <small className="mono small--sub">EdSurge, 2016</small>
                       </div>
                     </div>
                   </Link>
@@ -56,7 +59,8 @@ class App extends Component {
                       <img src={nav_thumb}/>
                       <div className="projects__image--wrapper">
                         <h4 className="margin0btm">Global Navigation</h4>
-                        <h5 className="mono">Project Lead, Research, UX, UI Design</h5>
+                          <h5 className="mono">Project Lead, Research, UX, UI Design</h5>
+                          <small className="mono small--sub">EdSurge, 2017</small>
                       </div>
                     </div>
                   </Link>
@@ -67,7 +71,8 @@ class App extends Component {
                         <img src={case_thumb}/>
                         <div className="projects__image--wrapper">
                           <h4 className="margin0btm">Interactive Case Studies</h4>
-                          <h5 className="mono">UX, UI Design, Web Development</h5>
+                            <h5 className="mono">UX, UI Design</h5>
+                            <small className="mono small--sub">EdSurge, 2016</small>
                         </div>
                       </div>
                     </Link>
