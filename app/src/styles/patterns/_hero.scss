@@ -1,6 +1,6 @@
 .hero__wrapper {
-  height: 70vh;
-  margin: 2vh 0 5vh 0;
+  height: 60vh;
+  margin: 2vh 0 7vh 0;
   position: relative;
 }
 
@@ -18,26 +18,25 @@
   }
 
   .hero__text {
-    //  @include grid-push(1);
      align-self: center;
   }
 
   .hero__text--sub {
-    margin-top: 12px;
+    margin-top: 1em;
     color: $light-grey;
     font-size: rem(16);
   }
 }
 // Animation Box (for now, sighhhhhh)
 .animation {
-  height: 70vh;
+  height: 60vh;
   background-color: #fff;
   width: 100%;
   position: absolute;
   z-index: -1;
 
   canvas {
-    opacity: .4;
+    opacity: .2;
     height: 100%;
 
   }

@@ -9,9 +9,9 @@ export class Header extends Component {
             <h4>lise kyle chapman</h4>
           </div>
           <ul className="nav--right">
-            <li><a href="#work">about</a></li>
-            <li><a href="#work">portfolio</a></li>
-            <li><a href="#contact">contact</a></li>
+            <li><a className="fancy-underline" href="#work">about</a></li>
+            <li><a className="fancy-underline" href="#work">portfolio</a></li>
+            <li><a className="fancy-underline" href="#contact">contact</a></li>
           </ul>
         </div>
       )

@@ -13,6 +13,39 @@
   text-align: center;
 }
 
+.fancy-underline {
+  font-family: $apercu;
+  font-size: rem(14);
+  display: inline-block;
+  position: relative;
+  color: $black;
+  padding: 16px 0;
+  text-decoration: none;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    height: 1em;
+    width: 100%;
+    border-bottom: 1px solid $powder-blue;
+    margin-top: 5px;
+    transition: all .2s ease-out;
+    opacity: 1;
+  }
+
+  &:hover {
+    color: $medium-grey;
+
+    &:after {
+        transform: translate(0, -10px);
+        opacity: 0;
+    }
+  }
+}
+
+
 
 // link underlines
 .underline--big {

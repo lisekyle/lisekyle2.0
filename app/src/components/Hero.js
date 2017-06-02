@@ -11,7 +11,7 @@ export class Hero extends Component {
     this.lineWidth = .75;
     this.lines = [];
     this.fillStyle = 'transparent';
-    this.strokeStyle = '#B7E3E4';
+    this.strokeStyle = '#008FD3';
     this.tick = 15;
     this.loop = this.loop.bind(this);
     this.initCanvas = this.initCanvas.bind(this);
