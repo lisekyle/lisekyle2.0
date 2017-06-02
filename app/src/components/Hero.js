@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Animation extends Component {
+export class Hero extends Component {
   constructor() {
     super();
     this.ctx = null;
@@ -87,11 +87,22 @@ export class Animation extends Component {
 
     render() {
       return (
-        <div className="animation" ref={e => { this.wrapper = e; }}>
-          <canvas id="c" ref={e => { this.canvas = e; }}></canvas>
-        </div>
+          <div className="hero__wrapper">
+            <div className="hero__text--wrapper">
+              <div className="container">
+                <div className="hero__text">
+                  <h1>hi, i'm lise&mdash;</h1>
+                  <h1>i like making things that help & inspire people.</h1>
+                  <h4 className="hero__text--sub mono">user-focused product designer with a background in frontend development</h4>
+                </div>
+              </div>
+            </div>
+            <div className="animation" ref={e => { this.wrapper = e; }}>
+              <canvas id="c" ref={e => { this.canvas = e; }}></canvas>
+            </div>
+          </div>
       )
     }
 }
 
-export default Animation;
+export default Hero;

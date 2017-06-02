@@ -6,13 +6,13 @@ export class Header extends Component {
       return (
         <div className="header">
           <div className="header__wrapper">
-            <h1>lise kyle chapman</h1>
-            <h4 className="mono">designer who codes based in san francisco. i like making things that help and inspire people.</h4>
+            <h4>lise kyle chapman</h4>
           </div>
-            <ul className="nav--right">
-              <li className="underline--small"><a href="#work">work</a></li>
-              <li className="underline--small"><a href="#contact">contact</a></li>
-            </ul>
+          <ul className="nav--right">
+            <li><a href="#work">about</a></li>
+            <li><a href="#work">portfolio</a></li>
+            <li><a href="#contact">contact</a></li>
+          </ul>
         </div>
       )
     }

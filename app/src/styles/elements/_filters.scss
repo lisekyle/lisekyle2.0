@@ -1,9 +1,0 @@
-.controls {
-  @include grid-media($default-grid) {
-    @include grid-column(12);
-  }
-  margin-bottom: 32px;
-  button {
-    margin-right: 8px;
-  }
-}

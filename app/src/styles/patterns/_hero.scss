@@ -1,0 +1,44 @@
+.hero__wrapper {
+  height: 70vh;
+  margin: 2vh 0 5vh 0;
+  position: relative;
+}
+
+.hero__text--wrapper {
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+
+  .container {
+    display: flex;
+    height: 60vh;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero__text {
+    //  @include grid-push(1);
+     align-self: center;
+  }
+
+  .hero__text--sub {
+    margin-top: 12px;
+    color: $light-grey;
+    font-size: rem(16);
+  }
+}
+// Animation Box (for now, sighhhhhh)
+.animation {
+  height: 70vh;
+  background-color: #fff;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+
+  canvas {
+    opacity: .4;
+    height: 100%;
+
+  }
+}

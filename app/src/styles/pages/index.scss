@@ -1,69 +1,6 @@
 // Index
 
 
-// Header
-.header {
-  padding: 5vh 0;
-  @include grid-media($mobile) {
-    @include grid-column(4);
-  }
-  @include grid-media($default-grid) {
-    @include grid-column(12);
-  }
-
-  .header__wrapper {
-    @include grid-column(8);
-
-
-    h1 {
-      margin-bottom: 20px;
-    }
-    h4 {
-      color: $light-grey;
-    }
-
-  }
-  .nav--right {
-    float: right;
-    margin-top: 24px;
-
-    li {
-      display: inline-block;
-      list-style: none;
-      margin-right: 32px;
-
-      &:last-child {
-        margin-right: 0;
-      }
-
-    }
-  }
-}
-
-// Animation Box (for now, sighhhhhh)
-.animation {
-  @include grid-media($mobile) {
-    @include grid-column(4);
-  }
-  @include grid-media($default-grid) {
-    @include grid-column(12);
-  }
-  height: 40vh;
-  background-color: #fff;
-  margin-bottom: 10vh;
-  position: relative;
-
-  canvas {
-    transition: transform 1.25s;
-
-    &:hover {
-      transform: skewX(-10deg);
-      transform: skewY(10deg);
-    }
-  }
-
-}
-
 // Footer
 .footer {
   ul {
