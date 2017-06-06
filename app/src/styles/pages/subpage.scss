@@ -1,56 +1,169 @@
 // Sub Page
+.container__wrapper--bg {
+    background-color: #F7F7F9;
+}
+
+.about--color {
+  background-color: $mauve;
+}
+
+.contact--color {
+  background-color: $powder-blue;
+}
 
 // Back Button
 .back-button {
-  @include grid-media($mobile) {
-    @include grid-column(4);
+  padding: 5vh 0;
+
+
+  .back-button__wrapper {
+    @include grid-column(8);
+
+    h4, h5 {
+      margin-bottom: 20px;
+    }
+
   }
-  @include grid-media($default-grid) {
-    @include grid-column(12);
+
+}
+
+.back-button__text {
+  a {
+    font-family: $apercu;
+    text-decoration: none;
   }
-  margin: 5vh 0;
-  &__wrapper {
+
+  &:hover {
+    &:before {
+      padding-left: 0px;
+    }
+  }
+
+  &:before {
+    content: url(images/backpointer.png);
+    vertical-align: baseline;
+    padding-left: 4px;
+    height: 20px;
+    width: 20px;
+    padding-right: 8px;
+    transition-duration: .2s;
+  }
+
+}
+
+.nav--right--sub {
+  float: right;
+  margin-top: -14px;
+
+  a {
+    margin-right: 32px;
+  }
+
+  li {
+    display: inline-block;
+    list-style: none;
+
+
+
+
+    &:last-child {
+      margin-right: 0;
+    }
+
   }
 }
 
-// Header
-.subpage__header {
-  @include grid-media($mobile) {
-    @include grid-column(4);
-  }
-  @include grid-media($default-grid) {
-    @include grid-column(12);
-  }
-  &--wrapper {
-    margin: 5vh 0;
+// About page and contact
+.full-page {
+  height: 90vh;
+  margin: 0;
+  position: relative;
+
+  .full-page__wrapper {
+    margin: 6vh 0;
     @include grid-media($mobile) {
       @include grid-column(4);
     }
     @include grid-media($default-grid) {
-      @include grid-column(8);
-      @include grid-shift(2)
-    }
-
-    h2 {
-      margin-bottom: 20px;
+      @include grid-column(10);
+      @include grid-shift(1);
     }
 
     h4 {
+      color: $black;
+      line-height: 1.7;
+      font-size: em(20);
+      margin-bottom: 1em;
+    }
+
+    a {
+      color: $black;
+    }
+
+  }
+}
+
+.about{
+  ul {
+    li {
+      display: inline-block;
+      list-style: none;
+    }
+  }
+}
+
+
+// Header
+.subpage__header {
+  height: 60vh;
+  margin: 0 0 7vh 0;
+  position: relative;
+  background-color: #F7F7F9;
+
+  .subpage__header--wrapper {
+    margin: 8vh 0;
+    @include grid-media($mobile) {
+      @include grid-column(4);
+    }
+    @include grid-media($default-grid) {
+      @include grid-column(11);
+      @include grid-shift(1);
+
+
+    }
+
+    h2 {
+      margin-bottom: 16px;
+    }
+
+    h4 {
+      color: $medium-grey;
+      font-size: rem(18);
+      line-height: 1.6;
+    }
+
+    h5 {
       color: $light-grey;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: em(10);
+      margin-bottom: 16px;
     }
   }
 }
 
 // Images
+.subpage__image {
+  margin: 7vh 0;
+  width: 90%;
+
+}
+
 .image--subpage {
-  @include grid-media($mobile) {
-    @include grid-column(4);
-  }
   @include grid-media($default-grid) {
     @include grid-column(11);
   }
   margin: 7vh 0;
-
 }
 
 .image--subpage--description {
@@ -83,35 +196,33 @@
 
 // Case Study Categories Grid
 .categories-grid {
-  margin: 7vh 0;
-  margin-left: 0 !important;
-  @include grid-media($mobile) {
-    @include grid-column(4);
-  }
-  @include grid-media($default-grid) {
-    @include grid-column(12);
-  }
+  margin-top: 7vh;
+  margin-bottom: 7vh;
 
-  &__block {
+  .categories-grid__block {
     @include grid-media($mobile) {
       @include grid-column(4);
     }
     @include grid-media($default-grid) {
         @include grid-column(4);
+        margin-left: 2em;
+        padding-right: 2em;
     }
 
-    border-right: 6px solid $powder-blue;
+    border-right: 2px solid $powder-blue;
     padding: em(32) 0;
     display: flex;
-
     &:first-child {
       margin-left: 0 !important;
     }
     &:last-child {
       border-right: none;
+      margin-right: 0 !important;
+      padding-right: 0 !important;
+
     }
 
-    &--wrapper {
+    .categories-grid__block--wrapper {
       margin: auto;
       text-align: center;
 
@@ -119,6 +230,8 @@
         margin-bottom: em(10);
       }
       ul {
+        margin-left: 0;
+
         li {
           list-style: none;
           color: $light-grey;

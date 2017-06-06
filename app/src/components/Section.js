@@ -7,14 +7,20 @@ export class Section extends Component {
 
     render() {
       return (
-        <div className="section">
-          <div className="section__title">
-            <h5 className="mono">{this.props.title}</h5>
+        <div>
+          <div className="container">
+            <div className="section">
+              <div className="section__title">
+                <h5 className="mono">{this.props.title}</h5>
+              </div>
+              <div className="section__body">
+                  {this.props.children}
+              </div>
+            </div>
           </div>
-          <div className="section__body">
-              {this.props.children}
+          <div className="line__wrapper">
+            <div className={`line ${this.props.noLine ? 'line--no-line' : ''}`}></div>
           </div>
-          <div className={`line ${this.props.noLine ? 'line--no-line' : ''}`}></div>
         </div>
       )
     }

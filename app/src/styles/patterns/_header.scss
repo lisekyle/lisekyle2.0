@@ -5,25 +5,25 @@
   .header__wrapper {
     @include grid-column(8);
 
-    h4 {
+    h4, h5 {
       margin-bottom: 20px;
     }
 
   }
-  .nav--right {
-    float: right;
-    margin-top: -7px;
+}
 
-    li {
-      display: inline-block;
-      list-style: none;
-      margin-right: 32px;
+.nav--right {
+  float: right;
+  margin-top: -7px;
 
+  li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 32px;
 
-      &:last-child {
-        margin-right: 0;
-      }
-
+    &:last-child {
+      margin-right: 0;
     }
+
   }
 }

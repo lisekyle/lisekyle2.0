@@ -1,13 +1,8 @@
 // Section
 .section {
-  @include grid-media($mobile) {
-    @include grid-column(4);
-  }
-  @include grid-media($default-grid) {
-    @include grid-column(12);
-  }
+  @include grid-shift(1);
 
-  &__title {
+  .section__title {
     @include grid-media($default-grid) {
       @include grid-column(2);
     }
@@ -26,29 +21,19 @@
     }
   }
 
-  &__body {
+  .section__body {
     @include grid-media($default-grid) {
       @include grid-column(10);
       margin-left: 0;
     }
 
-    &--wrapper {
+    .section__body--wrapper {
       @include grid-media($default-grid) {
         @include grid-column(11);
       }
     }
   }
 
-  .line {
-    @include grid-column(12);
-    height: em(5);
-    background-color: $offwhite;
-    margin: 10vh 0;
-
-    &--no-line {
-      background-color: $white;
-    }
-  }
 
   .link {
     margin-bottom: 1em;
@@ -62,5 +47,23 @@
       margin-bottom: 1em;
     }
 
+  }
+}
+
+.line__wrapper {
+  margin: 10vh auto;
+  @include grid-column(10);
+  @include grid-shift(2);
+}
+
+.line {
+  width: 82%;
+  height: em(5);
+  background-color: $offwhite;
+
+
+
+  &--no-line {
+    background-color: $white;
   }
 }

@@ -10,11 +10,11 @@ export class Footer extends Component {
             <h4 className="footer__text--sub mono">let's be friends and work together.</h4>
             <ul className="footer--top">
               <li><a className="fancy-underline" href="mailto:lisekyle@gmail.com">email</a></li>
-              <li><a className="fancy-underline" href="https://www.dropbox.com/s/uo7it8qmdj5s7g3/lisekylechapman_resume2017_2.pdf?dl=0" target="_blank">résumé</a></li>
+              <li><a className="fancy-underline" href="https://twitter.com/lisekyle" target="_blank">twitter</a></li>
               <li><a className="fancy-underline" href="https://www.linkedin.com/in/lisekylechapman" target="_blank">linkedin</a></li>
               <li><a className="fancy-underline" href="https://dribbble.com/lisekylechapman" target="_blank">dribbble</a></li>
               <li><a className="fancy-underline" href="https://github.com/lisekyle" target="_blank">github</a></li>
-              <li><a className="fancy-underline" href="http://codepen.io/kyletta/" target="_blank">codepen</a></li>
+              <li><a className="fancy-underline" href="https://www.behance.net/lisekyle" target="_blank">behance</a></li>
             </ul>
 
           </div>

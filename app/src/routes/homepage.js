@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import SubPageHeader from '../components/SubPageHeader';
 import Section from '../components/Section';
-import header from '../images/styleguide/header.jpg';
+import header from '../images/homepage/header.png';
 import painpoint1 from '../images/homepage/painpoint1.jpg';
 import painpoint2 from '../images/homepage/painpoint2.jpg';
 import painpoint3 from '../images/homepage/painpoint3.jpg';
@@ -16,10 +16,10 @@ import iteration3 from '../images/homepage/iteration3.jpg';
 export const homepage = () => {
   return (
     <div className="app">
-      <div className="container">
         <SubPageHeader
-          title={"Research and listening to users"}
+          title={"EdSurge Homepage Redesign"}
           subtitle={"Re-evaluating brand impression with user feedback"}
+          image={header}
           />
         <Section title={"My Role"}>
           <div className="section__body--wrapper">
@@ -185,7 +185,6 @@ export const homepage = () => {
             </p>
           </div>
       </Section>
-      </div>
     </div>
   )
 }
