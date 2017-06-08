@@ -14,19 +14,6 @@ export class ProjectList extends Component {
       return (
         <div id="work" className="container">
           <div className="projects__grid">
-            <Link to="/design-language">
-              <div className="projects__image">
-                <img src={styleguide_thumb}/>
-              </div>
-            </Link>
-            <div className="projects__image--text">
-              <h4>Building a Design Language</h4>
-              <p>Establishing a style guide and design language at EdSurge. Helped improve workflow and communication on the product team. </p>
-              <h5 className="mono">Case Study, Project Lead, Research, UX, UI Design</h5>
-              <Link to="/design-language"><h5 className="fancy-underline">VIEW</h5></Link>
-            </div>
-          </div>
-          <div className="projects__grid">
             <Link to="/homepage">
               <div className="projects__image">
                 <img src={homepage_thumb}/>
@@ -37,6 +24,32 @@ export class ProjectList extends Component {
               <p>By using different user research techniques, I aimed to restore brand impression and trust amongst our audience at EdSurge.</p>
               <h5 className="mono">Case Study, Research, UX, UI Design</h5>
               <Link to="/homepage"><h5 className="fancy-underline">VIEW</h5></Link>
+            </div>
+          </div>
+          <div className="projects__grid">
+            <Link to="/video-teaser">
+              <div className="projects__image">
+                <img src={okovi_thumb}/>
+              </div>
+            </Link>
+            <div className="projects__image--text">
+              <h4>O K O V I</h4>
+              <p>Art direction and development of a website that gives fans a sneak preview of a new album from Sacred Bones Records.</p>
+              <h5 className="mono">ART DIRECTION, UX, WEB DEVELOPMENT, ANIMATION</h5>
+              <Link to="/video-teaser"><h5 className="fancy-underline">VIEW</h5></Link>
+            </div>
+          </div>
+          <div className="projects__grid">
+            <Link to="/design-language">
+              <div className="projects__image">
+                <img src={styleguide_thumb}/>
+              </div>
+            </Link>
+            <div className="projects__image--text">
+              <h4>Building a Design Language</h4>
+              <p>Establishing a style guide and design language at EdSurge. Helped improve workflow and communication on the product team. </p>
+              <h5 className="mono">Case Study, Project Lead, Research, UX, UI Design</h5>
+              <Link to="/design-language"><h5 className="fancy-underline">VIEW</h5></Link>
             </div>
           </div>
         </div>

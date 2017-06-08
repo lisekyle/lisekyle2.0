@@ -11,6 +11,7 @@
       color: $light-grey;
       text-transform: uppercase;
       letter-spacing: 2.27px;
+      line-height: 1.667;
 
       &:before {
         content: url('images/line.svg');
@@ -30,6 +31,10 @@
     .section__body--wrapper {
       @include grid-media($default-grid) {
         @include grid-column(11);
+      }
+
+      h4 {
+        margin-bottom: .5em;
       }
     }
   }

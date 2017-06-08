@@ -1,14 +1,12 @@
 // Base
-
 .container {
   @include grid-container($default-grid);
+  margin: auto;
   @include grid-media($default-grid) {
       max-width: 1160px;
       margin: auto;
   }
-  @include grid-media($mobile) {
 
-  }
 }
 
 a {

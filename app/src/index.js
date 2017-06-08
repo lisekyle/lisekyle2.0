@@ -4,6 +4,7 @@ import App from './App';
 import designLanguage from './routes/designLanguage';
 import navigation from './routes/navigation';
 import casestudies from './routes/casestudies';
+import videoTeaser from './routes/videoTeaser';
 import homepage from './routes/homepage';
 import about from './routes/about';
 
@@ -21,6 +22,7 @@ ReactDOM.render(
       <Route exact={true} path="/homepage" component={homepage} />
       <Route exact={true} path="/navigation" component={navigation} />
       <Route exact={true} path="/casestudies" component={casestudies} />
+      <Route exact={true} path="/video-teaser" component={videoTeaser} />
       <Route exact={true} path="/about" component={about} />
 
 
