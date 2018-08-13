@@ -93,7 +93,7 @@ export class Hero extends Component {
                 <div className="hero__text">
                   <h1>hi, i'm lise&mdash;</h1>
                   <h1>i like making things that help & inspire people.</h1>
-                  <h4 className="hero__text--sub mono">user-focused product designer with a background in frontend development</h4>
+                  <h4 className="hero__text--sub mono">design engineer at Adobe, focusing on design systems + animation</h4>
                 </div>
               </div>
             </div>
