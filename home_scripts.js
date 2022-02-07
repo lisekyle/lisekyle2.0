@@ -181,7 +181,7 @@ class EffectShell {
     //create Array of items including element, image and index
     return items.map((item, index) => ({
       element: item,
-      img: item.querySelector('img') || null,
+      img: item.querySelector('.linkie-img') || null,
       index: index
     }))
   }
