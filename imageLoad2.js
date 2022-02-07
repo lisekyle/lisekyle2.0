@@ -284,7 +284,7 @@ class StretchEffect extends EffectShell {
       this.isMouseOver = true
       // show plane
       gsap.to(this.uniforms.uAlpha {
-        duration: 0.5
+        duration: 0.5,
         value: 1,
         ease: "power4.easeOut"
       })
@@ -293,7 +293,7 @@ class StretchEffect extends EffectShell {
 
   onMouseLeave(event) {
     gsap.to(this.uniforms.uAlpha {
-      duration: 0.5
+      duration: 0.5,
       value: 0,
       ease: "power4.easeOut"
     })
@@ -320,7 +320,7 @@ class StretchEffect extends EffectShell {
       x: x,
       y: y,
       duration: 1,
-      ease: "power4.easeOut"
+      ease: "power4.easeOut",
       onUpdate: this.onPositionUpdate.bind(this)
     })
   }
