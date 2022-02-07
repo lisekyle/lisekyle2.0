@@ -1,371 +1,359 @@
+Number.prototype.map = function(in_min, in_max, out_min, out_max) {
+    return ((this - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+  }
 
-const tl = gsap.timeline();
+class EffectShell {
+  constructor(container = document.body, itemsWrapper = null) {
+    this.container = container
+    this.itemsWrapper = itemsWrapper
+    if (!this.container || !this.itemsWrapper) return
+    this.setup()
+    this.initEffectShell().then(() => {
+      console.log('load finished')
+      this.isLoaded = true
+      if (this.isMouseOver) this.onMouseOver(this.tempItemIndex)
+      this.tempItemIndex = null
+    })
+    this.createEventsListeners()
+  }
 
-	tl.from(".line div", 1.2, {
-    y: -25,
-    ease: "power4.out",
-    delay: 1,
-    skewY: 5,
-    opacity: 0,
-    stagger: {
-      amount: 0.3
+  setup() {
+    window.addEventListener('resize', this.onWindowResize.bind(this), false)
+
+    // renderer
+    this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+    this.renderer.setSize(this.viewport.width, this.viewport.height)
+    this.renderer.setPixelRatio(window.devicePixelRatio)
+    this.container.appendChild(this.renderer.domElement)
+
+    // scene
+    this.scene = new THREE.Scene()
+
+    // camera
+    this.camera = new THREE.PerspectiveCamera(
+      40,
+      this.viewport.aspectRatio,
+      0.1,
+      100
+    )
+    this.camera.position.set(0, 0, 3)
+
+    //mouse
+    this.mouse = new THREE.Vector2()
+
+    // console.log(this.viewSize)
+    // let pg = new THREE.PlaneBufferGeometry(
+    //   this.viewSize.width,
+    //   this.viewSize.height,
+    //   1,
+    //   1
+    // )
+    // let pm = new THREE.MeshBasicMaterial({ color: 0xff0000 })
+    // let mm = new THREE.Mesh(pg, pm)
+    // this.scene.add(mm)
+
+    // time
+    this.timeSpeed = 2
+    this.time = 0
+    this.clock = new THREE.Clock()
+
+    // animation loop
+    this.renderer.setAnimationLoop(this.render.bind(this))
+  }
+
+  render() {
+    // called every frame
+    this.time += this.clock.getDelta() * this.timeSpeed
+    this.renderer.render(this.scene, this.camera)
+  }
+
+  initEffectShell() {
+    let promises = []
+
+    this.items = this.itemsElements
+
+    const THREEtextureLoader = new THREE.TextureLoader()
+    this.items.forEach((item, index) => {
+      // create textures
+      promises.push(
+        this.loadTexture(
+          THREEtextureLoader,
+          item.img ? item.img.src : null,
+          index
+        )
+      )
+    })
+
+    return new Promise((resolve, reject) => {
+      // resolve textures promises
+      Promise.all(promises).then(promises => {
+        // all textures are loaded
+        promises.forEach((promise, index) => {
+          // assign texture to item
+          this.items[index].texture = promise.texture
+        })
+        resolve()
+      })
+    })
+  }
+
+  createEventsListeners() {
+    this.items.forEach((item, index) => {
+      item.element.addEventListener(
+        'mouseover',
+        this._onMouseOver.bind(this, index),
+        false
+      )
+    })
+
+    this.container.addEventListener(
+      'mousemove',
+      this._onMouseMove.bind(this),
+      false
+    )
+    this.itemsWrapper.addEventListener(
+      'mouseleave',
+      this._onMouseLeave.bind(this),
+      false
+    )
+  }
+
+  _onMouseLeave(event) {
+    this.isMouseOver = false
+    this.onMouseLeave(event)
+  }
+
+  _onMouseMove(event) {
+    // get normalized mouse position on viewport
+    this.mouse.x = (event.clientX / this.viewport.width) * 2 - 1
+    this.mouse.y = -(event.clientY / this.viewport.height) * 2 + 1
+
+    this.onMouseMove(event)
+  }
+
+  _onMouseOver(index, event) {
+    this.tempItemIndex = index
+    this.onMouseOver(index, event)
+  }
+
+  onWindowResize() {
+    this.camera.aspect = this.viewport.aspectRatio
+    this.camera.updateProjectionMatrix()
+    this.renderer.setSize(this.viewport.width, this.viewport.height)
+  }
+
+  onUpdate() {}
+
+  onMouseEnter(event) {}
+
+  onMouseLeave(event) {}
+
+  onMouseMove(event) {}
+
+  onMouseOver(index, event) {}
+
+  get viewport() {
+    let width = this.container.clientWidth
+    let height = this.container.clientHeight
+    let aspectRatio = width / height
+    return {
+      width,
+      height,
+      aspectRatio
     }
-	})
+  }
 
-{
-    // body element
-    const body = document.body;
+  get viewSize() {
+    // fit plane to screen
+    // https://gist.github.com/ayamflow/96a1f554c3f88eef2f9d0024fc42940f
 
-    // helper functions
-    const MathUtils = {
-        // linear interpolation
-        lerp: (a, b, n) => (1 - n) * a + n * b,
-        // distance between two points
-        distance: (x1,y1,x2,y2) => Math.hypot(x2-x1, y2-y1)
-    }
+    let distance = this.camera.position.z
+    let vFov = (this.camera.fov * Math.PI) / 180
+    let height = 2 * Math.tan(vFov / 2) * distance
+    let width = height * this.viewport.aspectRatio
+    return { width, height, vFov }
+  }
 
-    // get the mouse position
-    const getMousePos = (ev) => {
-        let posx = 0;
-        let posy = 0;
-        if (!ev) ev = window.event;
-        if (ev.pageX || ev.pageY) {
-            posx = ev.pageX;
-            posy = ev.pageY;
+  get itemsElements() {
+    // convert NodeList to Array
+    const items = [...this.itemsWrapper.querySelectorAll('.link')]
+
+    //create Array of items including element, image and index
+    return items.map((item, index) => ({
+      element: item,
+      img: item.querySelector('img') || null,
+      index: index
+    }))
+  }
+
+  loadTexture(loader, url, index) {
+    // https://threejs.org/docs/#api/en/loaders/TextureLoader
+    return new Promise((resolve, reject) => {
+      if (!url) {
+        resolve({ texture: null, index })
+        return
+      }
+      // load a resource
+      loader.load(
+        // resource URL
+        url,
+
+        // onLoad callback
+        texture => {
+          resolve({ texture, index })
+        },
+
+        // onProgress callback currently not supported
+        undefined,
+
+        // onError callback
+        error => {
+          console.error('An error happened.', error)
+          reject(error)
         }
-        else if (ev.clientX || ev.clientY) 	{
-            posx = ev.clientX + body.scrollLeft + docEl.scrollLeft;
-            posy = ev.clientY + body.scrollTop + docEl.scrollTop;
-        }
-        return {x: posx, y: posy};
-    }
-
-    // mousePos: current mouse position
-    // cacheMousePos: previous mouse position
-    // lastMousePos: last last recorded mouse position (at the time the last image was shown)
-    let mousePos = lastMousePos = cacheMousePos = {x: 0, y: 0};
-    
-    // update the mouse position
-    window.addEventListener('mousemove', ev => mousePos = getMousePos(ev));
-    
-    // gets the distance from the current mouse position to the last recorded mouse position
-    const getMouseDistance = () => MathUtils.distance(mousePos.x,mousePos.y,lastMousePos.x,lastMousePos.y);
-
-    class Image {
-        constructor(el) {
-            this.DOM = {el: el};
-            // image deafult styles
-            this.defaultStyle = {
-                scale: 1,
-                x: 0,
-                y: 0,
-                opacity: 0
-            };
-            // get sizes/position
-            this.getRect();
-            // init/bind events
-            this.initEvents();
-        }
-        initEvents() {
-            // on resize get updated sizes/position
-            window.addEventListener('resize', () => this.resize());
-        }
-        resize() {
-            // reset styles
-            gsap.set(this.DOM.el, this.defaultStyle);
-            // get sizes/position
-            this.getRect();
-        }
-        getRect() {
-            this.rect = this.DOM.el.getBoundingClientRect();
-        }
-        isActive() {
-            // check if image is animating or if it's visible
-            return gsap.isTweening(this.DOM.el) || this.DOM.el.style.opacity != 0;
-        }
-    }
-
-    class ImageTrail {
-        constructor() {
-            // images container
-            this.DOM = {content: document.querySelector('.content')};
-            // array of Image objs, one per image element
-            this.images = [];
-            [...this.DOM.content.querySelectorAll('img')].forEach(img => this.images.push(new Image(img)));
-            // total number of images
-            this.imagesTotal = this.images.length;
-            // upcoming image index
-            this.imgPosition = 0;
-            // zIndex value to apply to the upcoming image
-            this.zIndexVal = 1;
-            // mouse distance required to show the next image
-            this.threshold = 100;
-            // Give the scroll handler access to this context
-            this.handleScroll = this.handleScroll.bind(this);
-            // render the images
-            requestAnimationFrame(() => this.render());
-        }
-        handleScroll() {
-          if ( document.scrollingElement.scrollTop === 0 ) {
-            document.removeEventListener('scroll', this.handleScroll);
-            requestAnimationFrame(() => this.render());
-          }
-        }
-        render() {
-        		// Only activate when scrolled to the top
-            if ( document.scrollingElement.scrollTop > 200 ) {
-            	document.addEventListener('scroll', this.handleScroll)
-              return;
-            }
-        	
-            // get distance between the current mouse position and the position of the previous image
-            let distance = getMouseDistance();
-            // cache previous mouse position
-            cacheMousePos.x = MathUtils.lerp(cacheMousePos.x || mousePos.x, mousePos.x, 0.1);
-            cacheMousePos.y = MathUtils.lerp(cacheMousePos.y || mousePos.y, mousePos.y, 0.1);
-
-            // if the mouse moved more than [this.threshold] then show the next image
-            if ( distance > this.threshold ) {
-                this.showNextImage();
-
-                ++this.zIndexVal;
-                this.imgPosition = this.imgPosition < this.imagesTotal-1 ? this.imgPosition+1 : 0;
-                
-                lastMousePos = mousePos;
-            }
-
-            // check when mousemove stops and all images are inactive (not visible and not animating)
-            let isIdle = true;
-            for (let img of this.images) {
-                if ( img.isActive() ) {
-                    isIdle = false;
-                    break;
-                }
-            }
-            // reset z-index initial value
-            if ( isIdle && this.zIndexVal !== 1 ) {
-                this.zIndexVal = 1;
-            }
-
-            // loop..
-            requestAnimationFrame(() => this.render());
-        }
-        showNextImage() {
-            // show image at position [this.imgPosition]
-            const img = this.images[this.imgPosition];
-            // kill any tween on the image
-            gsap.killTweensOf(img.DOM.el);
-
-          const tl = gsap.timeline();
-            // show the image
-            tl.set(img.DOM.el, {
-                startAt: {opacity: 0, scale: 1},
-                opacity: 1,
-                scale: 1,
-                zIndex: this.zIndexVal,
-                x: cacheMousePos.x - img.rect.width/2,
-                y: cacheMousePos.y - img.rect.height/2
-            }, 0)
-            // animate position
-            tl.to(img.DOM.el, 1.9, {
-                ease: Expo.easeOut,
-                x: mousePos.x - img.rect.width/2,
-                y: mousePos.y - img.rect.height/2
-            }, 0)
-            // then make it disappear
-            tl.to(img.DOM.el, 1, {
-                ease: Power1.easeOut,
-                opacity: 0
-            }, 1.4)
-            // scale down the image
-            tl.to(img.DOM.el, 1, {
-                ease: Quint.easeOut,
-                scale: 0.2
-            }, 1.4);
-        }
-    }
-
-
-    /***********************************/
-    /********** Preload stuff **********/
-
-    // Preload images
-    const preloadImages = () => {
-        return new Promise((resolve, reject) => {
-            imagesLoaded(document.querySelectorAll('.content__img'), resolve);
-        });
-    };
-    
-    // And then..
-    preloadImages().then(() => {
-        // Remove the loader
-        document.body.classList.remove('loading');
-        new ImageTrail();
-    });
+      )
+    })
+  }
 }
 
+class StretchEffect extends EffectShell {
+  constructor(container = document.body, itemsWrapper = null, options = {}) {
+    super(container, itemsWrapper)
+    if (!this.container || !this.itemsWrapper) return
 
-window.onload = function () {
-document.getElementById("loadingIndicator").style.opacity = "0";
-setTimeout(function() {
-    document.getElementById("loadingIndicator").style.display = "none";}, 450);
+    options.strength = options.strength || 0.25
+    this.options = options
+
+    this.init()
+  }
+
+  init() {
+    this.position = new THREE.Vector3(0, 0, 0)
+    this.scale = new THREE.Vector3(1, 1, 1)
+    this.geometry = new THREE.PlaneBufferGeometry(1, 1, 32, 32)
+    this.uniforms = {
+      uTexture: {
+        value: null
+      },
+      uOffset: {
+        value: new THREE.Vector2(0.0, 0.0)
+      },
+      uAlpha: {
+        value: 0
+      }
+    }
+    this.material = new THREE.ShaderMaterial({
+      uniforms: this.uniforms,
+      vertexShader: `
+        uniform vec2 uOffset;
+
+        varying vec2 vUv;
+
+        vec3 deformationCurve(vec3 position, vec2 uv, vec2 offset) {
+          float M_PI = 3.1415926535897932384626433832795;
+          position.x = position.x + (sin(uv.y * M_PI) * offset.x);
+          position.y = position.y + (sin(uv.x * M_PI) * offset.y);
+          return position;
+        }
+
+        void main() {
+          vUv =  uv + (uOffset * 2.);
+          vec3 newPosition = position;
+          newPosition = deformationCurve(position,uv,uOffset);
+          gl_Position = projectionMatrix * modelViewMatrix * vec4( newPosition, 1.0 );
+        }
+      `,
+      fragmentShader: `
+        uniform sampler2D uTexture;
+        uniform float uAlpha;
+
+        varying vec2 vUv;
+
+        vec2 scaleUV(vec2 uv,float scale) {
+          float center = 0.5;
+          return ((uv - center) * scale) + center;
+        }
+
+        void main() {
+          vec3 color = texture2D(uTexture,scaleUV(vUv,0.8)).rgb;
+          gl_FragColor = vec4(color,uAlpha);
+        }
+      `,
+      transparent: true
+    })
+    this.plane = new THREE.Mesh(this.geometry, this.material)
+    this.scene.add(this.plane)
+  }
+
+  onMouseEnter() {
+    if (!this.currentItem || !this.isMouseOver) {
+      this.isMouseOver = true
+      // show plane
+      gsap.to(this.uniforms.uAlpha, 0.5, {
+        value: 1,
+        ease: Power4.easeOut
+      })
+    }
+  }
+
+  onMouseLeave(event) {
+    gsap.to(this.uniforms.uAlpha, 0.5, {
+      value: 0,
+      ease: Power4.easeOut
+    })
+  }
+
+  onMouseMove(event) {
+    // project mouse position to world coodinates
+    let x = this.mouse.x.map(
+      -1,
+      1,
+      -this.viewSize.width / 2,
+      this.viewSize.width / 2
+    )
+    let y = this.mouse.y.map(
+      -1,
+      1,
+      -this.viewSize.height / 2,
+      this.viewSize.height / 2
+    )
+
+    // update position
+    this.position = new THREE.Vector3(x, y, 0)
+    gsap.to(this.plane.position, 1, {
+      x: x,
+      y: y,
+      ease: Power4.easeOut,
+      onUpdate: this.onPositionUpdate.bind(this)
+    })
+  }
+
+  onPositionUpdate() {
+    // compute offset
+    let offset = this.plane.position
+      .clone()
+      .sub(this.position)
+      .multiplyScalar(-this.options.strength)
+    this.uniforms.uOffset.value = offset
+  }
+
+  onMouseOver(index, e) {
+    if (!this.isLoaded) return
+    this.onMouseEnter()
+    if (this.currentItem && this.currentItem.index === index) return
+    this.onTargetChange(index)
+  }
+
+  onTargetChange(index) {
+    // item target changed
+    this.currentItem = this.items[index]
+    if (!this.currentItem.texture) return
+
+    // compute image ratio
+    let imageRatio =
+      this.currentItem.img.naturalWidth / this.currentItem.img.naturalHeight
+    this.scale = new THREE.Vector3(imageRatio, 1, 1)
+    this.uniforms.uTexture.value = this.currentItem.texture
+    this.plane.scale.copy(this.scale)
+  }
 }
-
-{
-    const mapNumber = (X,A,B,C,D) => (X-A)*(D-C)/(B-A)+C;
-    // from http://www.quirksmode.org/js/events_properties.html#position
-	const getMousePos = (e) => {
-        let posx = 0;
-        let posy = 0;
-		if (!e) e = window.event;
-		if (e.pageX || e.pageY) {
-            posx = e.pageX;
-			posy = e.pageY;
-		}
-		else if (e.clientX || e.clientY) 	{
-			posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-			posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-		}
-        return { x : posx, y : posy }
-    }
-    // Generate a random float.
-    const getRandomFloat = (min, max) => (Math.random() * (max - min) + min).toFixed(2);
-
-    /**
-     * One class per effect. 
-     * Lots of code is repeated, so that single effects can be easily used. 
-     */
-
-    // Effect 1
-    class HoverImgFx1 {
-        constructor(el) {
-            this.DOM = {el: el};
-            this.DOM.reveal = document.createElement('div');
-            this.DOM.reveal.className = 'hover-reveal';
-            this.DOM.reveal.innerHTML = `<div class="hover-reveal__inner"><div class="hover-reveal__img" style="background-image:url(${this.DOM.el.dataset.img})"></div></div>`;
-            this.DOM.el.appendChild(this.DOM.reveal);
-            this.DOM.revealInner = this.DOM.reveal.querySelector('.hover-reveal__inner');
-            this.DOM.revealInner.style.overflow = 'hidden';
-            this.DOM.revealImg = this.DOM.revealInner.querySelector('.hover-reveal__img');
-
-            this.initEvents();
-        }
-        initEvents() {
-            this.positionElement = (ev) => {
-                const mousePos = getMousePos(ev);
-                const docScrolls = {
-                    left : document.body.scrollLeft + document.documentElement.scrollLeft, 
-                    top : document.body.scrollTop + document.documentElement.scrollTop
-                };
-                this.DOM.reveal.style.top = `${mousePos.y-20-docScrolls.top}px`;
-                this.DOM.reveal.style.left = `${mousePos.x-20-docScrolls.left}px`;
-            };
-            this.mouseenterFn = (ev) => {
-                this.positionElement(ev);
-                this.showImage();
-            };
-            this.mousemoveFn = ev => requestAnimationFrame(() => {
-                this.positionElement(ev);
-            });
-            this.mouseleaveFn = () => {
-                this.hideImage();
-            };
-            
-            this.DOM.el.addEventListener('mouseenter', this.mouseenterFn);
-            this.DOM.el.addEventListener('mousemove', this.mousemoveFn);
-            this.DOM.el.addEventListener('mouseleave', this.mouseleaveFn);
-        }
-         showImage() {
-            TweenMax.killTweensOf(this.DOM.revealInner);
-            TweenMax.killTweensOf(this.DOM.revealImg);
-
-            this.tl = new TimelineMax({
-                onStart: () => {
-                    this.DOM.reveal.style.opacity = 1;
-                    TweenMax.set(this.DOM.el, {zIndex: 1000});
-                }
-            })
-            .add('begin')
-            .add(new TweenMax(this.DOM.revealInner, 0.2, {
-                ease: Sine.easeOut,
-                startAt: {x: '-100%'},
-                x: '0%'
-            }), 'begin')
-            .add(new TweenMax(this.DOM.revealImg, 0.2, {
-                ease: Sine.easeOut,
-                startAt: {x: '100%'},
-                x: '0%'
-            }), 'begin');
-        }
-        hideImage() {
-            TweenMax.killTweensOf(this.DOM.revealInner);
-            TweenMax.killTweensOf(this.DOM.revealImg);
-
-            this.tl = new TimelineMax({
-                onStart: () => {
-                    TweenMax.set(this.DOM.el, {zIndex: 999});
-                },
-                onComplete: () => {
-                    TweenMax.set(this.DOM.el, {zIndex: ''});
-                    TweenMax.set(this.DOM.reveal, {opacity: 0});
-                }
-            })
-            .add('begin')
-            .add(new TweenMax(this.DOM.revealInner, 0.2, {
-                ease: Sine.easeOut,
-                x: '100%'
-            }), 'begin')
-            
-            .add(new TweenMax(this.DOM.revealImg, 0.2, {
-                ease: Sine.easeOut,
-                x: '-100%'
-            }), 'begin');
-        } showImage() {
-            TweenMax.killTweensOf(this.DOM.revealInner);
-            TweenMax.killTweensOf(this.DOM.revealImg);
-
-            this.tl = new TimelineMax({
-                onStart: () => {
-                    this.DOM.reveal.style.opacity = 1;
-                    TweenMax.set(this.DOM.el, {zIndex: 1000});
-                }
-            })
-            .add('begin')
-            .add(new TweenMax(this.DOM.revealInner, 0.2, {
-                ease: Sine.easeOut,
-                startAt: {x: '-100%'},
-                x: '0%'
-            }), 'begin')
-            .add(new TweenMax(this.DOM.revealImg, 0.2, {
-                ease: Sine.easeOut,
-                startAt: {x: '100%'},
-                x: '0%'
-            }), 'begin');
-        }
-        hideImage() {
-            TweenMax.killTweensOf(this.DOM.revealInner);
-            TweenMax.killTweensOf(this.DOM.revealImg);
-
-            this.tl = new TimelineMax({
-                onStart: () => {
-                    TweenMax.set(this.DOM.el, {zIndex: 999});
-                },
-                onComplete: () => {
-                    TweenMax.set(this.DOM.el, {zIndex: ''});
-                    TweenMax.set(this.DOM.reveal, {opacity: 0});
-                }
-            })
-            .add('begin')
-            .add(new TweenMax(this.DOM.revealInner, 0.2, {
-                ease: Sine.easeOut,
-                x: '100%'
-            }), 'begin')
-            
-            .add(new TweenMax(this.DOM.revealImg, 0.2, {
-                ease: Sine.easeOut,
-                x: '-100%'
-            }), 'begin');
-        }
-    }
-    [...document.querySelectorAll('.linkie')].forEach(link => new HoverImgFx1(link));
-   }
