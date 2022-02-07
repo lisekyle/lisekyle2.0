@@ -176,7 +176,7 @@ class EffectShell {
 
   get itemsElements() {
     // convert NodeList to Array
-    const items = [...this.itemsWrapper.querySelectorAll('.link')]
+    const items = [...this.itemsWrapper.querySelectorAll('.linkie')]
 
     //create Array of items including element, image and index
     return items.map((item, index) => ({
