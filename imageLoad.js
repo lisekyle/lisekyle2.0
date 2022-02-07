@@ -283,17 +283,19 @@ class StretchEffect extends EffectShell {
     if (!this.currentItem || !this.isMouseOver) {
       this.isMouseOver = true
       // show plane
-      gsap.to(this.uniforms.uAlpha, 0.5, {
+      gsap.to(this.uniforms.uAlpha {
+        duration: 0.5
         value: 1,
-        ease: Power4.easeOut
+        ease: "power4.easeOut"
       })
     }
   }
 
   onMouseLeave(event) {
-    gsap.to(this.uniforms.uAlpha, 0.5, {
+    gsap.to(this.uniforms.uAlpha {
+      duration: 0.5
       value: 0,
-      ease: Power4.easeOut
+      ease: "power4.easeOut"
     })
   }
 
@@ -314,10 +316,11 @@ class StretchEffect extends EffectShell {
 
     // update position
     this.position = new THREE.Vector3(x, y, 0)
-    gsap.to(this.plane.position, 1, {
+    gsap.to(this.plane.position {
       x: x,
       y: y,
-      ease: Power4.easeOut,
+      duration: 1,
+      ease: "power4.easeOut"
       onUpdate: this.onPositionUpdate.bind(this)
     })
   }
